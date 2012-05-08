@@ -596,20 +596,8 @@ class CommonParser
 
     foreach($this->csvRecords as $record)
     {
-      // Check for blank lines.
-      $blank = TRUE;
-
-      foreach($record as $value)
-      {
-        if($value != "")
-        {
-          $blank = FALSE;
-          break;
-        }
-      }
-
       // If we have a blank line, with skip it and continue
-      if($blank)
+      if(self::checkForBlank($record))
       {
         continue;
       }
@@ -710,7 +698,7 @@ class CommonParser
               if(count($recordStructure) < count($record))
               {
                 array_push($this->commonErrors,
-                  "commON Parser (003): Too many properties defined for the record according to the record structure.
+                  "commON Parser (003): Too many properties defined for the record ( . count($record) . ) according to the record structure ( . count($recordStructure) . ).
                    Please make sure that you don't have empty cells in ending columns for your records, that are
                    not defined in the attribute definition line.");
                 return;
@@ -1442,6 +1430,19 @@ class CommonParser
     }    
     
     return($val);
+  }
+
+  // Check for blank lines.
+  private static function checkForBlank ($record){
+    foreach($record as $value)
+    {
+      if($value != "")
+      {
+        return false;
+      }
+    }
+
+    return true;
   }
 }
 ?>
