@@ -2,9 +2,9 @@
 
 /*! @file CommonParser.php
    @brief commON parser implementation file
-  
+
    \n\n
- 
+
    @author Frederick Giasson, Structured Dynamics LLC.
 
    \n\n\n
@@ -13,7 +13,7 @@
 
 /*!   @brief commON serialization parsing class
      @details This class will parse a commON CSV file and parse it to extract commON instance records.
-            
+
     \n
 
     @todo Implementing the "metaFile" keyword
@@ -21,23 +21,23 @@
     @todo Implementing the "listSeparator" keyword
     @todo Implementing the "listSeparatorEscape" keyword
     @todo Implementing the "seqNum" keyword
-  
+
     @author Frederick Giasson, Structured Dynamics LLC.
-  
+
     \n\n\n
 */
 class CommonParser
 {
   /*! @page internalDataStructures Internal Data Structures used by the commON Parser
-   
+
      @section CSVParserInternalParsedRecordsStructure CSV Parser Internal Parsed Records Structure
-     
+
      @n
-     
+
      The structure of the parsed CSV records is saved in the $csvRecords private member. Its content looks like:
-     
+
      @n
-     
+
      @verbatim
     Array
     (
@@ -63,18 +63,18 @@ class CommonParser
         [5] => Acceso Abierto y revistas médicas españolas
         [6] => http://eprints.rclis.org/11490/1/open_acces_Medicina_Cl%C3%ADnica_2006_versi%C3%B3n_aceptada_del_autor.pdf
     )
-     
+
      ...
      @endverbatim
 
      @n
-     
+
      The "&&recordList" processor keyword tells the parser that a recordList is introduced.
-     
+
      Then you have the CSV column structure that tels the parser how to recreate the key/value pairs
-     
+
      And then you have a series of records.
-     
+
      @n
      @n
        */
@@ -83,15 +83,15 @@ class CommonParser
   private $csvRecords = array();
 
   /*! @page internalDataStructures Internal Data Structures used by the commON Parser
- 
+
    @section CommonParserInternalParsedRecordsStructure Common Parser Internal Parsed Records Structure
-   
+
    @n
-   
+
    The parser commON records are saved in the $commonRecords private member. Its structure looks like:
-   
+
    @n
-   
+
    @verbatim
   Array
   (
@@ -104,9 +104,9 @@ class CommonParser
                               [value] => info:lib:am:2009-02-18:maria_francisca_abad_garcia
                               [reify] =>
                           )
-  
+
                   )
-  
+
               [&type] => Array
                   (
                       [0] => Array
@@ -114,9 +114,9 @@ class CommonParser
                               [value] => Person
                               [reify] =>
                           )
-  
+
                   )
-  
+
               [&prefLabel] => Array
                   (
                       [0] => Array
@@ -124,12 +124,12 @@ class CommonParser
                               [value] => Maria Francisca Abad-Garcia
                               [reify] =>
                           )
-  
+
                   )
 
                     [&homepage] => Array
                   (
-                      [0] => Array                        
+                      [0] => Array
                           (
                               [value] => Personal Data in a Large Digital Library.
                               [reify] => Array
@@ -138,45 +138,45 @@ class CommonParser
                                           (
                                               [0] => http://dblp.uni-trier.de/db/conf/ercimdl/ecdl2000.html#CruzKK00
                                           )
-  
+
                                   )
-  
+
                           )
           )
-                  
+
         ...
       )
-      
+
     ...
-  
+
   )
   @endverbatim
 
   @n
-  
+
   Where the first array is an array of records. Then for each record item, you have a list of attributes. Each attribute
   is a list of values. Then each value is an array with two keys: "value" and "reify". "value" is the value of the triple:
   "record" "attribute" "value". "reify" is an array of meta data (reifications) attribute/value pairs about the triple
   statement.
-  
+
   @n
   @n
-   
+
 */
 
 /*! @brief Array with all parsed commON records */
   private $commonRecords = array();
 
   /*! @page internalDataStructures Internal Data Structures used by the commON Parser
-   
+
      @section LinkageSchemaInternalStructure Linkage Schema Internal Structure
 
     The Linkage Schema structure is used to map attributes and types used in a commON dataset to
     external vocabularies/taxonomies/ontologies. This structure is saved in the $commonLinkageSchema
     private member and looks like:
-    
+
     @n
-    
+
     @verbatim
     Array
     (
@@ -186,14 +186,14 @@ class CommonParser
                     (
                         [0] => 0.1
                     )
-    
+
                 [&linkageType] => Array
                     (
                         [0] => application/rdf+xml
                     )
-    
+
             )
-    
+
         [properties] => Array
             (
                 [0] => Array
@@ -202,44 +202,44 @@ class CommonParser
                             (
                                 [0] => prefLabel
                             )
-    
+
                         [&mapTo] => Array
                             (
                                 [0] => http://www.w3.org/2000/01/rdf-schema#label
                             )
-    
+
                     )
-    
+
                 [1] => Array
                     (
                         [&attributeList] => Array
                             (
                                 [0] => homepage
                             )
-    
+
                         [&mapTo] => Array
                             (
                                 [0] => http://xmlns.com/foaf/0.1/homepage
                             )
-    
+
                     )
-    
+
                 [2] => Array
                     (
                         [&attributeList] => Array
                             (
                                 [0] => prefURL
                             )
-    
+
                         [&mapTo] => Array
                             (
                                 [0] => http://purl.org/ontology/bibo/uri
                             )
-    
+
                     )
-    
+
             )
-    
+
         [types] => Array
             (
                 [0] => Array
@@ -248,20 +248,23 @@ class CommonParser
                             (
                                 [0] => Person
                             )
-    
+
                         [&mapTo] => Array
                             (
                                 [0] => http://xmlns.com/foaf/0.1/Person
                             )
-    
+
                     )
-    
+
             )
-    
+
     )
     ...
     @endverbatim
    */
+
+  /*! @brief String containing the content of a commON file */
+  private $content = '';
 
   /*! @brief Array describing the linkage schema (if defined) of a commON file */
   private $commonLinkageSchema = array();
@@ -271,94 +274,92 @@ class CommonParser
 
   /*! @brief CSV Parsing errors stack */
   private $csvErrors = array();
-  
+
   /*! @brief commON Validation errors stack */
   private $commonErrors = array();
 
   /*!   @brief Constructor. It takes the commON CSV file content as input.
-              
+
       \n
-      
+
       @param[in] $content commON CSV file content
-      
+
       @author Frederick Giasson, Structured Dynamics LLC.
-    
+
       \n\n\n
   */
   function __construct($content)
   {
-    $this->content = $content;
-
     // Parse the CSV file
-    $this->csvParser();
+    $this->csvRecords = $this->csvParser($content);
 
     // Parse the commON records
-    $this->commonParser();
+    $this->commonRecords = $this->commonParser($this->csvRecords);
   }
 
   /*!   @brief Returns the array of records parsed from the CSV file
-              
+
       \n
-      
+
       @return returns an array of records.
-      
+
       @see @ref CSVParserInternalParsedRecordsStructure
-      
+
       @author Frederick Giasson, Structured Dynamics LLC.
-    
+
       \n\n\n
   */
   public function getCsvRecords() { return ($this->csvRecords); }
 
 
   /*!   @brief Returns the array of parsed commON records
-              
+
       \n
-      
+
       @return returns an array of commON records.
-      
-      @see @ref CommonParserInternalParsedRecordsStructure        
-      
+
+      @see @ref CommonParserInternalParsedRecordsStructure
+
       @author Frederick Giasson, Structured Dynamics LLC.
-    
+
       \n\n\n
   */
   public function getCommonRecords() { return ($this->commonRecords); }
 
   /*!   @brief Returns the array of the parsed linkage schema.
-              
+
       \n
-      
+
       @return returns an array of the parsed linkage schema
-      
-      @see @ref LinkageSchemaInternalStructure        
-      
+
+      @see @ref LinkageSchemaInternalStructure
+
       @author Frederick Giasson, Structured Dynamics LLC.
-    
+
       \n\n\n
   */
   public function getLinkageSchema() { return ($this->commonLinkageSchema); }
 
   /*!   @brief Returns the array of the parsed dataset.
-              
+
       \n
-      
+
       @return returns an array of the parsed dataset
-      
+
       @author Frederick Giasson, Structured Dynamics LLC.
-    
+
       \n\n\n
   */
   public function getDataset() { return ($this->dataset); }
 
   /*!   @brief Check for CSV parsing errors
-              
+
       \n
-      
+
       @return Return FALSE if no errors; returns an array of error messages if any.
-      
+
       @author Frederick Giasson, Structured Dynamics LLC.
-    
+
       \n\n\n
   */
   public function getCsvErrors()
@@ -372,13 +373,13 @@ class CommonParser
   }
 
   /*!   @brief Check for commON parsing errors
-              
+
       \n
-      
+
       @return Return FALSE if no errors; returns an array of error messages if any.
-      
+
       @author Frederick Giasson, Structured Dynamics LLC.
-    
+
       \n\n\n
   */
   public function getCommonErrors()
@@ -392,18 +393,18 @@ class CommonParser
   }
 
   /*!   @brief Parse a CSV files to produce the structure used by the commonParser function.
-              
+
       \n
-      
+
       @return returns NULL
-      
+
       @author Frederick Giasson, Structured Dynamics LLC.
-    
+
       \n\n\n
   */
-  private function csvParser()
+  private function csvParser($csvData)
   {
-    /* Index pointing to the begenning of a record in the CSV file string */
+    /* Index pointing to the beginning of a record in the CSV file string */
     $startRecord = 0;
 
     /* Index pointing to the end of a record in the CSV file string */
@@ -416,7 +417,7 @@ class CommonParser
 
     /*
       The structure of this record looks like:
-      
+
       Array
       (
           [0] => info:lib:am:2009-02-18:maria_francisca_abad_garcia
@@ -440,37 +441,39 @@ class CommonParser
           [5] => &isAuthorOfTitle
           [6] => &isAuthorOfTitle&prefURL
       )
-      
+
        Key/value pairs can be recreated by binding the keys,  such as: "&type -> Person"
-       
+
      */
     $record = array();
 
     /* Check if a string is in double quotes (necessary for proper escaping) */
     $inDoubleQuotes = FALSE;
 
-    // Remove all extra carrier return. We normalize with "\r"
-    $this->content = preg_replace("/[\r\n]+/", "\r", $this->content);
+    $CsvRecords = array();
 
-    for($i = 0; $i < strlen($this->content); $i++)
+    // Remove all extra carrier return. We normalize with "\r"
+    $csvData = preg_replace("/[\r\n]+/", "\r", $csvData);
+
+    for($i = 0; $i < strlen($csvData); $i++)
     {
       if($inDoubleQuotes)
       {
         // If we are in double quotes, we get everything until we read the other double quotes.
-        if($this->content[$i] == '"')
+        if($csvData[$i] == '"')
         {
           // check if the next char is another double quote, if it is, we ignore it
-          if($this->content[$i + 1] != '"')
+          if($csvData[$i + 1] != '"')
           {
             $inDoubleQuotes = FALSE;
 
-            // Check if the next character is a comma, or a return charrier. If it is not, we got an error
-            if(($this->content[$i + 1] != "," && ($this->content[$i + 1] == " " && $this->content[$i + 2] != ","))
-              && ($this->content[$i + 1] != "\r" && ($this->content[$i + 1] == " " && $this->content[$i + 2] != "\r")))
+            // Check if the next character is a comma, or a return carrier. If it is not, we got an error
+            if(($csvData[$i + 1] != "," && ($csvData[$i + 1] == " " && $csvData[$i + 2] != ","))
+              && ($csvData[$i + 1] != "\r" && ($csvData[$i + 1] == " " && $csvData[$i + 2] != "\r")))
             {
               array_push($this->csvErrors,
                 "CSV parser (001): A comma or a return carrier is expected after an un-escaped double quotes.");
-              return;
+              return false;
             }
           }
           else
@@ -480,7 +483,7 @@ class CommonParser
           }
         }
       }
-      elseif($start && substr($this->content, 0, 1) == '"')
+      elseif($start && substr($csvData, 0, 1) == '"')
       {
         // First thing we have to check is if we start with double quotes
         $inDoubleQuotes = TRUE;
@@ -491,10 +494,10 @@ class CommonParser
       else
       {
         // If we are not in double quotes, we get everything until we reach a comma or a line break.
-        if(($this->content[$i] == "\n") || ($this->content[$i] == "\r")
-          || ($this->content[$i] == "\r" && $this->content[$i + 1] == "\n"))
+        if(($csvData[$i] == "\n") || ($csvData[$i] == "\r")
+          || ($csvData[$i] == "\r" && $csvData[$i + 1] == "\n"))
         {
-          if($this->content[$i - 1] == '"')
+          if($csvData[$i - 1] == '"')
           {
             $endRecord = $i - 1;
           }
@@ -504,23 +507,23 @@ class CommonParser
           }
 
           array_push($record,
-            str_replace('""', '"', substr($this->content, $startRecord, ($endRecord - $startRecord))));
+            str_replace('""', '"', substr($csvData, $startRecord, ($endRecord - $startRecord))));
 
           $startRecord = $i + 1;
 
 
           // Add this new record to the records list
-          array_push($this->csvRecords, $record);
+          array_push($CsvRecords, $record);
           $record = array();
 
-          if($this->content[$i] == "\r" && $this->content[$i + 1] == "\n")
+          if($csvData[$i] == "\r" && $csvData[$i + 1] == "\n")
           {
             $i++;
           }
         }
-        elseif($this->content[$i] == ",")
+        elseif($csvData[$i] == ",")
         {
-          if($this->content[$i - 1] == '"')
+          if($csvData[$i - 1] == '"')
           {
             $endRecord = $i - 1;
           }
@@ -530,15 +533,15 @@ class CommonParser
           }
 
           array_push($record,
-            str_replace('""', '"', substr($this->content, $startRecord, ($endRecord - $startRecord))));
+            str_replace('""', '"', substr($csvData, $startRecord, ($endRecord - $startRecord))));
 
           $startRecord = $i + 1;
         }
-        elseif($this->content[$i] == '"')
+        elseif($csvData[$i] == '"')
         {
-          if($this->content[$i - 1] == " ")
+          if($csvData[$i - 1] == " ")
           {
-            if($this->content[$i - 2] == ",")
+            if($csvData[$i - 2] == ",")
             {
               $inDoubleQuotes = TRUE;
               $startRecord = $i + 1;
@@ -546,12 +549,12 @@ class CommonParser
             else
             {
               array_push($this->csvErrors, "CSV parser (002): An un-escaped double quote has been detected.");
-              return;
+              return false;
             }
           }
           else
           {
-            if($this->content[$i - 1] == "," || $this->content[$i - 1] == "\r")
+            if($csvData[$i - 1] == "," || $csvData[$i - 1] == "\r")
             {
               $inDoubleQuotes = TRUE;
               $startRecord = $i + 1;
@@ -559,26 +562,28 @@ class CommonParser
             else
             {
               array_push($this->csvErrors, "CSV parser (003): An un-escaped double quote has been detected (around: '... "
-                . str_replace(array ("\n", "\r"), " ", substr($this->content, $i - 5, 10)) . " ... (char #$i)').");
-              return;
+                . str_replace(array ("\n", "\r"), " ", substr($csvData, $i - 5, 10)) . " ... (char #$i)').");
+              return false;
             }
           }
         }
       }
     }
+
+    Return $CsvRecords;
   }
 
   /*!   @brief Create the commON records form the parsed CSV records
-              
+
       \n
-      
+
       @return returns NULL
-      
+
       @author Frederick Giasson, Structured Dynamics LLC.
-    
+
       \n\n\n
   */
-  private function commonParser()
+  private function commonParser($csvRecords)
   {
     /* Check what is the current section being processed: (1) record, (2) dataset or (3) linkage */
     $currentSection = "";
@@ -588,6 +593,9 @@ class CommonParser
 
     /* A commON record description */
     $commonRecord = array();
+
+    /* commON record set */
+    $commonRecordSet = array();
 
     /* The record structure where to match commON record descriptions to their values */
     $recordStructure = array();
@@ -603,31 +611,20 @@ class CommonParser
       }
 
       // Change the section pointer.
-      if(isset($record[0][0]) && $record[0][0] == "&" && $record[0][1] == "&")
+      $currentSection = self::checkForSection($record);
+
+      //we can't process it if we don't know what it is
+      if ($currentSection == "unknown")
       {
-        switch($record[0])
-        {
-          case "&&recordList":
-            $currentSection = "record";
-            $shouldBeRecordDescription = TRUE;
-          break;
-
-          case "&&dataset":
-            $currentSection = "dataset";
-            $shouldBeRecordDescription = TRUE;
-          break;
-
-          case "&&linkage":
-            $currentSection = "linkage";
-            $shouldBeRecordDescription = TRUE;
-          break;
-
-          default:
-            return ("Unknown section $record[0]");
-          break;
-        }
+        array_push($this->commonErrors, "commON Parser (008): Unknown section encountered: $record[0]");
+        return ("Unknown section $record[0]");
       }
-      else
+
+      if ($currentSection) //it's definitely a good section
+      {
+        $shouldBeRecordDescription = TRUE;
+      }
+      else //it's definitely not a section
       {
         if($shouldBeRecordDescription === FALSE && $currentSection == "linkage" && $record[0][0] == "&")
         {
@@ -717,7 +714,7 @@ class CommonParser
                   // Set the ID
                   $this->dataset["&id"] = array(array ("value" => $record[$key], "reify" => "") );
                 }
-                
+
                 // Check if it is a reification attribute
                 elseif(($reifiedAttribute = $this->getReifiedAttribute($rs)) !== FALSE)
                 {
@@ -790,9 +787,9 @@ class CommonParser
                     }
                   }
                 }
-              }              
+              }
             break;
-            
+
             // We are parsing a record.
             case "record":
               if(count($recordStructure) > count($record))
@@ -807,7 +804,7 @@ class CommonParser
               if(count($recordStructure) < count($record))
               {
                 array_push($this->commonErrors,
-                  "commON Parser (004): Too many properties defined for the record ID#".$record[0]." according to the record structure. 
+                  "commON Parser (004): Too many properties defined for the record ID#".$record[0]." according to the record structure.
                    Please make sure that you don't have empty cells in ending columns for your records, that are
                    not defined in the attribute definition line. Also check to make sure that the commas are escaped.");
                 return;
@@ -839,7 +836,7 @@ class CommonParser
                       $currentRecord = $record[$key];
 
                       // Archive the record before processing the next one
-                      array_push($this->commonRecords, $commonRecord);
+                      array_push($commonRecordSet, $commonRecord);
 
                       // Reinitialize the commRecord structure
                       $commonRecord = array();
@@ -941,13 +938,13 @@ class CommonParser
                 if(count($recordStructure) < count($record))
                 {
                   array_push($this->commonErrors,
-                    "commON Parser (005): Too many properties defined for the record according to the linkage schema 
-                     record structure. Please make sure that you don't have empty cells in ending columns for your 
+                    "commON Parser (005): Too many properties defined for the record according to the linkage schema
+                     record structure. Please make sure that you don't have empty cells in ending columns for your
                      records, that are not defined in the attribute definition line.");
                   return;
                 }
 
-                if(!isset($this->commonLinkageSchema["properties"]) || 
+                if(!isset($this->commonLinkageSchema["properties"]) ||
                    !is_array($this->commonLinkageSchema["properties"]))
                 {
                   $this->commonLinkageSchema["properties"] = array();
@@ -1007,8 +1004,8 @@ class CommonParser
                 if(count($recordStructure) < count($record))
                 {
                   array_push($this->commonErrors,
-                    "commON Parser (006): Too many properties defined for the record according to the linkage schema 
-                     record structure. Please make sure that you don't have empty cells in ending columns for your 
+                    "commON Parser (006): Too many properties defined for the record according to the linkage schema
+                     record structure. Please make sure that you don't have empty cells in ending columns for your
                      records, that are not defined in the attribute definition line.");
                   return;
                 }
@@ -1049,13 +1046,13 @@ class CommonParser
                 if(count($recordStructure) < count($record))
                 {
                   array_push($this->commonErrors,
-                    "commON Parser (007): Too many properties defined for the record according to the linkage schema 
-                     record structure. Please make sure that you don't have empty cells in ending columns for your 
+                    "commON Parser (007): Too many properties defined for the record according to the linkage schema
+                     record structure. Please make sure that you don't have empty cells in ending columns for your
                      records, that are not defined in the attribute definition line.");
                   return;
                 }
 
-                if(!isset($this->commonLinkageSchema["description"]) || 
+                if(!isset($this->commonLinkageSchema["description"]) ||
                    !is_array($this->commonLinkageSchema["description"]))
                 {
                   $this->commonLinkageSchema["description"] = array();
@@ -1081,7 +1078,7 @@ class CommonParser
       }
     }
 
-    array_push($this->commonRecords, $commonRecord);
+    array_push($commonRecordSet, $commonRecord);
 
     // Fix the attributeList structure with the prefixes if any have been defined.
     $linkageSchema = $this->commonLinkageSchema;
@@ -1136,16 +1133,18 @@ class CommonParser
         }
       }
     }
+
+    Return $commonRecordSet;
   }
 
 /*!   @brief Check if an attribute is a reification attribute.
-            
+
     \n
-    
+
     @return return FALSE if it is not a reification attribute, return the structure array( "attribute" => "...", "reifidAttribute" => "...") structure.
-    
+
     @author Frederick Giasson, Structured Dynamics LLC.
-  
+
     \n\n\n
 */
   private function getReifiedAttribute($attribute)
@@ -1161,17 +1160,17 @@ class CommonParser
   }
 
   /*!   @brief Generate a RDF file serialized in N3 by using the parsed commON records and the related linkage schema.
-        
+
       @param[in] $baseInstance  Base URI of the instance records to be converted
       @param[in] $baseOntology  Base URI of the ontology used to create new attributes and types. This is used
                           when there is nothing defined in the linkage schema for an attribute or type.
-              
+
       \n
-      
+
       @return return the serialized RDF file in N3
-      
+
       @author Frederick Giasson, Structured Dynamics LLC.
-    
+
       \n\n\n
   */
   public function getRdfN3($baseInstance = "", $baseOntology = "")
@@ -1263,8 +1262,8 @@ class CommonParser
               {
                 // The value is a literal
                 $n3 .= "<" . $recordId . "> <" . $p . "> \"\"\"" . $this->escapeN3($value["value"]) . "\"\"\" .\n";
-              }                
-              
+              }
+
               // Check if there is some statements to reify
               if(isset($value["reify"]) && is_array($value["reify"]))
               {
@@ -1280,7 +1279,7 @@ class CommonParser
                   {
                     $reiProperty = $baseOntology . substr($reifiedAttribute, 1, strlen($reifiedAttribute) - 1);
 
-                  
+
                   // @TODO: Check if "@" or "@@"
                   foreach($reiValues as $reiValue)
                   {
@@ -1316,20 +1315,20 @@ class CommonParser
         }
       }
     }
-    
+
     return ($n3 . $n3ReificationStatements);
   }
 
 /*!   @brief Return the URI of the property that has been linked to a commON attribute by the Linkage Schema.
-      
-    @param[in] $targetAttribute Target attribute, from the commON file, that we try to link to an external vocabulary/schema/ontology 
-            
+
+    @param[in] $targetAttribute Target attribute, from the commON file, that we try to link to an external vocabulary/schema/ontology
+
     \n
-    
+
     @return return the URI of the linked property, or an empty string if such a linked property doesn't exist.
-    
+
     @author Frederick Giasson, Structured Dynamics LLC.
-  
+
     \n\n\n
 */
   public function getLinkedProperty($targetAttribute)
@@ -1356,20 +1355,20 @@ class CommonParser
   }
 
 /*!   @brief Return the URI of the type that has been linked to a commON type by the Linkage Schema.
-      
-    @param[in] $targetType Target type, from the commON file, that we try to link to an external vocabulary/schema/ontology 
-            
+
+    @param[in] $targetType Target type, from the commON file, that we try to link to an external vocabulary/schema/ontology
+
     \n
-    
+
     @return return the URI of the linked type, or an empty string if such a linked type doesn't exist.
-    
+
     @author Frederick Giasson, Structured Dynamics LLC.
-  
+
     \n\n\n
 */
   public function getLinkedType($targetType)
   {
-    // Remve the processing character if it is present at the beginning of the attr
+    // Remove the processing character if it is present at the beginning of the attr
     if(substr($targetType, 0, 1) == "&")
     {
       $targetType = substr($targetType, 1, strlen($targetType) - 1);
@@ -1391,15 +1390,15 @@ class CommonParser
   }
 
   /*!   @brief Apply N3 serialization escaping rules to a literal
-        
-      @param[in] $literal Literal to be escaped 
-              
+
+      @param[in] $literal Literal to be escaped
+
       \n
-      
+
       @return return the N3 escaped literal ready to be used in a N3 serialized file.
-      
+
       @author Frederick Giasson, Structured Dynamics LLC.
-    
+
       \n\n\n
   */
   private function escapeN3($literal)
@@ -1408,7 +1407,7 @@ class CommonParser
 
     return str_replace(array ('"', "'"), array ('\\"', "\\'"), $literal);
   }
-  
+
   private function unprefixize($val)
   {
     if(count($this->commonLinkageSchema["prefixes"][0]["&prefixList"]) > 0)
@@ -1427,22 +1426,48 @@ class CommonParser
           }
         }
       }
-    }    
-    
+    }
+
     return($val);
   }
 
   // Check for blank lines.
   private static function checkForBlank ($record){
-    foreach($record as $value)
-    {
-      if($value != "")
-      {
-        return false;
+
+    if (is_array($record)) {
+      foreach ($record as $value) {
+        if ($value != "") {
+          return FALSE;
+        }
       }
     }
 
     return true;
+  }
+
+  private static function checkForSection ($record)
+  {
+    if(isset($record[0][0]) && $record[0][0] == "&" && $record[0][1] == "&")
+    {
+      switch(strtolower($record[0]))
+      {
+        case "&&recordlist":
+          return "record";
+
+        case "&&dataset":
+          return "dataset";
+
+        case "&&linkage":
+          return "linkage";
+      }
+
+      //it's formatted as a section, but it's not one we know about
+      return "unknown";
+    }
+
+    //its not a section
+    return false;
+
   }
 }
 ?>
