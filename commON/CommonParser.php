@@ -263,6 +263,9 @@
      @endverbatim
     */
 
+    /*! @brief String containing the content of a commON file */
+    private $content = '';
+
     /*! @brief Array describing the linkage schema (if defined) of a commON file */
     private $commonLinkageSchema = array();
 
@@ -285,15 +288,15 @@
 
         \n\n\n
     */
-    function __construct($content)
+    function __construct ($content = NULL)
     {
-      $this->content = $content;
+      if (!is_null($content)) {
+        // Parse the CSV string if supplied
+        $this->csvRecords = $this->csvStringParser($content);
 
-      // Parse the CSV file
-      $this->csvParser();
-
-      // Parse the commON records
-      $this->commonParser();
+        // Parse the commON records
+        $this->commonRecords = $this->commonParser($this->csvRecords);
+      }
     }
 
     /*!   @brief Returns the array of records parsed from the CSV file
@@ -308,7 +311,10 @@
 
         \n\n\n
     */
-    public function getCsvRecords() { return ($this->csvRecords); }
+    public function getCsvRecords ()
+    {
+      return ($this->csvRecords);
+    }
 
 
     /*!   @brief Returns the array of parsed commON records
@@ -391,19 +397,46 @@
       return ($this->commonErrors);
     }
 
-    /*!   @brief Parse a CSV files to produce the structure used by the commonParser function.
+    /*!   @brief Parse a CSV file to produce the structure used by the commonParser function.
 
         \n
 
-        @return returns NULL
+        @return returns array
+
+        @author Jon Phipps
+
+        \n\n\n
+    */
+    private function csvFileParser($path)
+    {
+      //require_once __DIR__ . "/../EasyCSV/lib/EasyCSV/Reader.php";
+
+      try {
+        $reader = new EasyCSV\Reader($path);
+        $data = $reader->getAll();
+        $foo = "bar";
+
+      }
+      catch (Exception $e) {
+        //we just let it fail
+      }
+
+    }
+
+
+    /*!   @brief Parse a CSV string to produce the structure used by the commonParser function.
+
+        \n
+
+        @return returns array
 
         @author Frederick Giasson, Structured Dynamics LLC.
 
         \n\n\n
     */
-    private function csvParser()
+    private function csvStringParser($csvData)
     {
-      /* Index pointing to the begenning of a record in the CSV file string */
+      /* Index pointing to the beginning of a record in the CSV file string */
       $startRecord = 0;
 
       /* Index pointing to the end of a record in the CSV file string */
@@ -449,28 +482,30 @@
       /* Check if a string is in double quotes (necessary for proper escaping) */
       $inDoubleQuotes = FALSE;
 
-      // Remove all extra carrier return. We normalize with "\r"
-      $this->content = preg_replace("/[\r\n]+/", "\r", $this->content);
+      $CsvRecords = array();
 
-      for($i = 0; $i < strlen($this->content); $i++)
+      // Remove all extra carrier return. We normalize with "\r"
+      $csvData = preg_replace("/[\r\n]+/", "\r", $csvData);
+
+      for($i = 0; $i < strlen($csvData); $i++)
       {
         if($inDoubleQuotes)
         {
           // If we are in double quotes, we get everything until we read the other double quotes.
-          if($this->content[$i] == '"')
+          if($csvData[$i] == '"')
           {
             // check if the next char is another double quote, if it is, we ignore it
-            if($this->content[$i + 1] != '"')
+            if($csvData[$i + 1] != '"')
             {
               $inDoubleQuotes = FALSE;
 
-              // Check if the next character is a comma, or a return charrier. If it is not, we got an error
-              if(($this->content[$i + 1] != "," && ($this->content[$i + 1] == " " && $this->content[$i + 2] != ","))
-                 && ($this->content[$i + 1] != "\r" && ($this->content[$i + 1] == " " && $this->content[$i + 2] != "\r")))
+              // Check if the next character is a comma, or a return carrier. If it is not, we got an error
+              if(($csvData[$i + 1] != "," && ($csvData[$i + 1] == " " && $csvData[$i + 2] != ","))
+                 && ($csvData[$i + 1] != "\r" && ($csvData[$i + 1] == " " && $csvData[$i + 2] != "\r")))
               {
                 array_push($this->csvErrors,
                   "CSV parser (001): A comma or a return carrier is expected after an un-escaped double quotes.");
-                return;
+                return FALSE;
               }
             }
             else
@@ -480,7 +515,7 @@
             }
           }
         }
-        elseif($start && substr($this->content, 0, 1) == '"')
+        elseif($start && substr($csvData, 0, 1) == '"')
         {
           // First thing we have to check is if we start with double quotes
           $inDoubleQuotes = TRUE;
@@ -491,10 +526,10 @@
         else
         {
           // If we are not in double quotes, we get everything until we reach a comma or a line break.
-          if(($this->content[$i] == "\n") || ($this->content[$i] == "\r")
-             || ($this->content[$i] == "\r" && $this->content[$i + 1] == "\n"))
+          if(($csvData[$i] == "\n") || ($csvData[$i] == "\r")
+             || ($csvData[$i] == "\r" && $csvData[$i + 1] == "\n"))
           {
-            if($i > 0 && $this->content[$i - 1] == '"')
+            if($csvData[$i - 1] == '"')
             {
               $endRecord = $i - 1;
             }
@@ -504,23 +539,23 @@
             }
 
             array_push($record,
-              str_replace('""', '"', substr($this->content, $startRecord, ($endRecord - $startRecord))));
+              str_replace('""', '"', substr($csvData, $startRecord, ($endRecord - $startRecord))));
 
             $startRecord = $i + 1;
 
 
             // Add this new record to the records list
-            array_push($this->csvRecords, $record);
+            array_push($CsvRecords, $record);
             $record = array();
 
-            if(isset($this->content[$i + 1]) && $this->content[$i] == "\r" && $this->content[$i + 1] == "\n")
+            if($csvData[$i] == "\r" && $csvData[$i + 1] == "\n")
             {
               $i++;
             }
           }
-          elseif($this->content[$i] == ",")
+          elseif($csvData[$i] == ",")
           {
-            if($this->content[$i - 1] == '"')
+            if($csvData[$i - 1] == '"')
             {
               $endRecord = $i - 1;
             }
@@ -530,15 +565,15 @@
             }
 
             array_push($record,
-              str_replace('""', '"', substr($this->content, $startRecord, ($endRecord - $startRecord))));
+              str_replace('""', '"', substr($csvData, $startRecord, ($endRecord - $startRecord))));
 
             $startRecord = $i + 1;
           }
-          elseif($this->content[$i] == '"')
+          elseif($csvData[$i] == '"')
           {
-            if($this->content[$i - 1] == " ")
+            if($csvData[$i - 1] == " ")
             {
-              if($this->content[$i - 2] == ",")
+              if($csvData[$i - 2] == ",")
               {
                 $inDoubleQuotes = TRUE;
                 $startRecord = $i + 1;
@@ -546,12 +581,12 @@
               else
               {
                 array_push($this->csvErrors, "CSV parser (002): An un-escaped double quote has been detected.");
-                return;
+                return FALSE;
               }
             }
             else
             {
-              if($this->content[$i - 1] == "," || $this->content[$i - 1] == "\r")
+              if($csvData[$i - 1] == "," || $csvData[$i - 1] == "\r")
               {
                 $inDoubleQuotes = TRUE;
                 $startRecord = $i + 1;
@@ -559,13 +594,15 @@
               else
               {
                 array_push($this->csvErrors, "CSV parser (003): An un-escaped double quote has been detected (around: '... "
-                                             . str_replace(array ("\n", "\r"), " ", substr($this->content, $i - 5, 10)) . " ... (char #$i)').");
-                return;
+                                             . str_replace(array ("\n", "\r"), " ", substr($csvData, $i - 5, 10)) . " ... (char #$i)').");
+                return FALSE;
               }
             }
           }
         }
       }
+
+      Return $CsvRecords;
     }
 
     /*!   @brief Create the commON records form the parsed CSV records
@@ -578,7 +615,7 @@
 
         \n\n\n
     */
-    private function commonParser()
+    private function commonParser($csvRecords)
     {
       /* Check what is the current section being processed: (1) record, (2) dataset or (3) linkage */
       $currentSection = "";
@@ -589,6 +626,9 @@
       /* A commON record description */
       $commonRecord = array();
 
+      /* commON record set */
+      $commonRecordSet = array();
+
       /* The record structure where to match commON record descriptions to their values */
       $recordStructure = array();
 
@@ -596,52 +636,27 @@
 
       foreach($this->csvRecords as $record)
       {
-        // Check for blank lines.
-        $blank = TRUE;
-
-        foreach($record as $value)
-        {
-          if($value != "")
-          {
-            $blank = FALSE;
-            break;
-          }
-        }
-
         // If we have a blank line, with skip it and continue
-        if($blank)
+        if(self::checkForBlank($record))
         {
           continue;
         }
 
         // Change the section pointer.
-        if(isset($record[0][1]) &&  $record[0][0] == "&" && $record[0][1] == "&")
+        $currentSection = self::checkForSection($record);
+
+        //we can't process it if we don't know what it is
+        if ($currentSection == "unknown")
         {
-          switch($record[0])
-          {
-            case "&&recordList":
-              $currentSection = "record";
-              $shouldBeRecordDescription = TRUE;
-              break;
-
-            case "&&dataset":
-              $currentSection = "dataset";
-              $shouldBeRecordDescription = TRUE;
-              break;
-
-            case "&&linkage":
-              $currentSection = "linkage";
-              $shouldBeRecordDescription = TRUE;
-              break;
-
-            default:
-              array_push($this->commonErrors, "commON Parser: Unknown section $record[0]");
-
-              return ("Unknown section $record[0]");
-              break;
-          }
+          array_push($this->commonErrors, "commON Parser (008): Unknown section encountered: $record[0]");
+          return ("Unknown section $record[0]");
         }
-        else
+
+        if ($currentSection) //it's definitely a good section
+        {
+          $shouldBeRecordDescription = TRUE;
+        }
+        else //it's definitely not a section
         {
           if($shouldBeRecordDescription === FALSE && $currentSection == "linkage" && $record[0][0] == "&")
           {
@@ -712,7 +727,7 @@
                 if(count($recordStructure) < count($record))
                 {
                   array_push($this->commonErrors,
-                    "commON Parser (003): Too many properties defined for the record according to the record structure.
+                    "commON Parser (003): Too many properties defined for the record ( . count($record) . ) according to the record structure ( . count($recordStructure) . ).
                    Please make sure that you don't have empty cells in ending columns for your records, that are
                    not defined in the attribute definition line.");
                   return;
@@ -853,7 +868,7 @@
                         $currentRecord = $record[$key];
 
                         // Archive the record before processing the next one
-                        array_push($this->commonRecords, $commonRecord);
+                        array_push($commonRecordSet, $commonRecord);
 
                         // Reinitialize the commRecord structure
                         $commonRecord = array();
@@ -1095,10 +1110,11 @@
         }
       }
 
-      array_push($this->commonRecords, $commonRecord);
+      array_push($commonRecordSet, $commonRecord);
 
       // Fix the attributeList structure with the prefixes if any have been defined.
-      if(isset($this->commonLinkageSchema["prefixes"]) &&  count($this->commonLinkageSchema["prefixes"][0]["&prefixList"]) > 0)
+      $linkageSchema = $this->commonLinkageSchema;
+      if(isset($linkageSchema["prefixes"]) && count($linkageSchema["prefixes"][0]["&prefixList"]) > 0)
       {
         // Fix types
         foreach($this->commonLinkageSchema["types"] as $keyType => $type)
@@ -1149,6 +1165,8 @@
           }
         }
       }
+
+      Return $commonRecordSet;
     }
 
     /*!   @brief Check if an attribute is a reification attribute.
@@ -1382,7 +1400,7 @@
     */
     public function getLinkedType($targetType)
     {
-      // Remve the processing character if it is present at the beginning of the attr
+      // Remove the processing character if it is present at the beginning of the attr
       if(substr($targetType, 0, 1) == "&")
       {
         $targetType = substr($targetType, 1, strlen($targetType) - 1);
@@ -1443,6 +1461,45 @@
       }
 
       return($val);
+    }
+
+    // Check for blank lines.
+    private static function checkForBlank ($record){
+
+      if (is_array($record)) {
+        foreach ($record as $value) {
+          if ($value != "") {
+            return FALSE;
+          }
+        }
+      }
+
+      return TRUE;
+    }
+
+    private static function checkForSection ($record)
+    {
+      if(isset($record[0][0]) && $record[0][0] == "&" && $record[0][1] == "&")
+      {
+        switch(strtolower($record[0]))
+        {
+          case "&&recordlist":
+            return "record";
+
+          case "&&dataset":
+            return "dataset";
+
+          case "&&linkage":
+            return "linkage";
+        }
+
+        //it's formatted as a section, but it's not one we know about
+        return "unknown";
+      }
+
+      //its not a section
+      return FALSE;
+
     }
   }
 ?>
