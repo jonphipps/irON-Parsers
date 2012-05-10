@@ -68,17 +68,19 @@ CSV;
         ->seeResultEquals(false);
     }
 
-    public function csvParser (CodeGuy $I)
+    public function csvFileParser (CodeGuy $I)
     {
-      $I->haveStub($commonParser = Stub::makeEmptyExcept($this->class, 'csvParser'));
+      $I->haveStub($commonParser = Stub::makeEmptyExcept($this->class, 'csvFileParser'));
 
-      $I->wantTo('test the csv parser');
+      $I->wantTo('test the csv file parser');
 
-      $I->expect('csv record returns an array')
-        ->executeTestedMethod($commonParser, $this->goodCSV)
-        ->seeResultEquals(str_getcsv($this->goodCSV))
-        ->seeResultIs('array');
+      $I->expect('nonparsable path returns an error')
+        ->executeTestedMethod($commonParser, '')
+        ->seeExceptionThrown('ErrorException', 'No such file');
 
+      $I->expect('good path returns success')
+        ->executeTestedMethod($commonParser, __DIR__ . '/test.csv' )
+        ->seeExceptionThrown('ErrorException', 'No such file');
 
     }
 
