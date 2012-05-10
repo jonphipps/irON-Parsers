@@ -4,6 +4,11 @@ abridgerExpression,Property,New-Proposed,abridgerExpression,Abridger (Expression
 ,,,,,,,An additional definition would be on its own line,,,,,4
 ,,,,,,,These definitions are defined as 'en-GB' because that is the default language for this vocabulary. This can be different from the default language of the spreadsheet,,,,,5
 ,,,,,,,,,,,,
+
+&&dataset,,,,,,,,,,,,
+&id,&prefLabel,&description,&createDate,&updateDate,&linkage,&source,,,,,,,
+http://mkbergman.com/swt/,Sweet Tools,"Sweet Tools is a comprehensive listing of about 800 semantic Web and -related tools, with most open source",8/12/2006,8/1/2009,http://example.com/link,@mkbergman,,,,,,,
+
 &&linkage,,,,,,,,,,,,
 &version,&linkageType,&graph_id,&namespace,&commit_id,,,,,,,,
 0.1,rdf,http://rdvocab.info/roles,http://rdvocab.info/roles/,277b89f6eb35a5d68df09c2bf5b3d40c90815435,,,,,,,,
