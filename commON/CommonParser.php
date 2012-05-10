@@ -494,7 +494,7 @@
           if(($this->content[$i] == "\n") || ($this->content[$i] == "\r")
              || ($this->content[$i] == "\r" && $this->content[$i + 1] == "\n"))
           {
-            if($this->content[$i - 1] == '"')
+            if($i > 0 && $this->content[$i - 1] == '"')
             {
               $endRecord = $i - 1;
             }
@@ -513,7 +513,7 @@
             array_push($this->csvRecords, $record);
             $record = array();
 
-            if($this->content[$i] == "\r" && $this->content[$i + 1] == "\n")
+            if(isset($this->content[$i + 1]) && $this->content[$i] == "\r" && $this->content[$i + 1] == "\n")
             {
               $i++;
             }
