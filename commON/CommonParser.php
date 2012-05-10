@@ -615,7 +615,7 @@
         }
 
         // Change the section pointer.
-        if($record[0][0] == "&" && $record[0][1] == "&")
+        if(isset($record[0][1]) &&  $record[0][0] == "&" && $record[0][1] == "&")
         {
           switch($record[0])
           {
@@ -1098,7 +1098,7 @@
       array_push($this->commonRecords, $commonRecord);
 
       // Fix the attributeList structure with the prefixes if any have been defined.
-      if(count($this->commonLinkageSchema["prefixes"][0]["&prefixList"]) > 0)
+      if(isset($this->commonLinkageSchema["prefixes"]) &&  count($this->commonLinkageSchema["prefixes"][0]["&prefixList"]) > 0)
       {
         // Fix types
         foreach($this->commonLinkageSchema["types"] as $keyType => $type)
