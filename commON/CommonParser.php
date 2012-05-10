@@ -288,13 +288,15 @@ class CommonParser
 
       \n\n\n
   */
-  function __construct($content)
+  function __construct ($content = NULL)
   {
-    // Parse the CSV file
-    $this->csvRecords = $this->csvParser($content);
+    if (!is_null($content)) {
+      // Parse the CSV string if supplied
+      $this->csvRecords = $this->csvStringParser($content);
 
-    // Parse the commON records
-    $this->commonRecords = $this->commonParser($this->csvRecords);
+      // Parse the commON records
+      $this->commonRecords = $this->commonParser($this->csvRecords);
+    }
   }
 
   /*!   @brief Returns the array of records parsed from the CSV file
@@ -309,7 +311,10 @@ class CommonParser
 
       \n\n\n
   */
-  public function getCsvRecords() { return ($this->csvRecords); }
+  public function getCsvRecords ()
+  {
+    return ($this->csvRecords);
+  }
 
 
   /*!   @brief Returns the array of parsed commON records
@@ -392,17 +397,44 @@ class CommonParser
     return ($this->commonErrors);
   }
 
-  /*!   @brief Parse a CSV files to produce the structure used by the commonParser function.
+  /*!   @brief Parse a CSV file to produce the structure used by the commonParser function.
 
       \n
 
-      @return returns NULL
+      @return returns array
 
-      @author Frederick Giasson, Structured Dynamics LLC.
+      @author Jon Phipps
 
       \n\n\n
   */
-  private function csvParser($csvData)
+  private function csvFileParser($path)
+  {
+    //require_once __DIR__ . "/../EasyCSV/lib/EasyCSV/Reader.php";
+
+    try {
+      $reader = new EasyCSV\Reader($path);
+      $data = $reader->getAll();
+      $foo = "bar";
+
+    }
+    catch (Exception $e) {
+      //we just let it fail
+    }
+
+  }
+
+
+    /*!   @brief Parse a CSV string to produce the structure used by the commonParser function.
+
+        \n
+
+        @return returns array
+
+        @author Frederick Giasson, Structured Dynamics LLC.
+
+        \n\n\n
+    */
+  private function csvStringParser($csvData)
   {
     /* Index pointing to the beginning of a record in the CSV file string */
     $startRecord = 0;
@@ -473,7 +505,7 @@ class CommonParser
             {
               array_push($this->csvErrors,
                 "CSV parser (001): A comma or a return carrier is expected after an un-escaped double quotes.");
-              return false;
+              return FALSE;
             }
           }
           else
@@ -549,7 +581,7 @@ class CommonParser
             else
             {
               array_push($this->csvErrors, "CSV parser (002): An un-escaped double quote has been detected.");
-              return false;
+              return FALSE;
             }
           }
           else
@@ -563,7 +595,7 @@ class CommonParser
             {
               array_push($this->csvErrors, "CSV parser (003): An un-escaped double quote has been detected (around: '... "
                 . str_replace(array ("\n", "\r"), " ", substr($csvData, $i - 5, 10)) . " ... (char #$i)').");
-              return false;
+              return FALSE;
             }
           }
         }
@@ -1442,7 +1474,7 @@ class CommonParser
       }
     }
 
-    return true;
+    return TRUE;
   }
 
   private static function checkForSection ($record)
@@ -1466,7 +1498,7 @@ class CommonParser
     }
 
     //its not a section
-    return false;
+    return FALSE;
 
   }
 }
