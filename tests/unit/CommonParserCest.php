@@ -12,7 +12,7 @@
 
   Class CommonParserCest
   {
-    public $class = 'CommonParser';
+    public $class = '\IronParsers\CommON\CommonParser';
 
     public $goodCSV = <<< 'CSV'
 abridgerExpression,Property,New-Proposed,abridgerExpression,Abridger (Expression),Abridger (Expression),Note that this definition column does not have a ‟language” attribute in the header. The 'default' language for this column is specified in the attribute map.,"A person, family, or corporate body contributing to an expression of a work by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged.","Eine Person, Familie oder Körperschaft, die eine Expression eines Werkes kürzt oder zusammenfasst, dabei aber das Wesen des Originalwerkes unverändert lässt. ",rdafrbr:Expression,,rdaroles:contributor,3
@@ -81,6 +81,7 @@ CSV;
       $I->expect('good path returns success')
         ->executeTestedMethod($commonParser, __DIR__ . '/test.csv' )
         ->seeExceptionThrown('ErrorException', 'No such file');
+      $I->see
 
     }
 
