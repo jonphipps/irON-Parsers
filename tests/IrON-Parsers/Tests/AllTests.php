@@ -1,6 +1,6 @@
 <?php
 
-namespace IrON-Parsers2\Tests;
+namespace IrON-Parsers\Tests;
 
 if ( ! defined('PHPUnit_MAIN_METHOD')) {
     define('PHPUnit_MAIN_METHOD', 'AllTests::main');
@@ -17,9 +17,9 @@ class AllTests
 
     public static function suite()
     {
-        $suite = new \PHPUnit_Framework_TestSuite('IrON-Parsers2 Tests');
+        $suite = new \PHPUnit_Framework_TestSuite('IrON-Parsers Tests');
 
-        $suite->addTestSuite('IrON-Parsers2\Tests\SampleTest');
+        $suite->addTestSuite('IrON-Parsers\Tests\SampleTest');
 
         return $suite;
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace IrON-Parsers2;
+namespace IrON-Parsers;
 
 /**
  * ClassLoader implementation that implements the technical interoperability
@@ -13,7 +13,7 @@ namespace IrON-Parsers2;
  *     $classLoader = new ClassLoader('Doctrine\Common', '/path/to/doctrine');
  *     $classLoader->register();
  *
- * @package IrON-Parsers2
+ * @package IrON-Parsers
  * @author Jonathan H. Wage <jonwage@gmail.com>
  * @author Roman S. Borschel <roman@code-factory.org>
  * @author Matthew Weier O'Phinney <matthew@zend.com>
