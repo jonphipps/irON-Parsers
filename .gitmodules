@@ -1,0 +1,3 @@
+[submodule "EasyCSV"]
+	path = EasyCSV
+	url = git@github.com:jonphipps/EasyCSV.git
