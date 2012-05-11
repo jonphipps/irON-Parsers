@@ -1,8 +1,8 @@
 <?php
 
-  namespace EasyCSV;
+  namespace IronParsers\commON;
 
-  class Reader extends AbstractBase
+  class Reader extends \EasyCSV\AbstractBase
   {
     private $_headers;
     private $_line;

@@ -1,6 +1,6 @@
 <?php
 
-namespace IrON-Parsers\Tests;
+namespace IronParsers\Tests;
 
 require_once __DIR__ . '/TestInit.php';
 

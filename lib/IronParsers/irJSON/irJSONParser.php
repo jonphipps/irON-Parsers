@@ -1,13 +1,13 @@
 <?php
 
-namespace IrON-Parsers\irJSON;
+namespace IronParsers\irJSON;
 
 /*!   @brief JSON parsing class
-            
+
     \n
-    
+
     @author Frederick Giasson, Structured Dynamics LLC.
-  
+
     \n\n\n
 */
 
@@ -42,12 +42,12 @@ class irJSONParser
     '{
                     "schema": {
                       "version": "0.1",
-                      
+
                       "attributeList": {
-                      
+
                         "id": {
                           "allowedValue": "String",
-                          
+
                           "maxValues": "1"
                         },
                         "type": {
@@ -55,14 +55,14 @@ class irJSONParser
                         },
                         "ref": {
                           "allowedValue": "String",
-                          
-                          "maxValues": "1"                          
+
+                          "maxValues": "1"
                         },
 
-                        
+
                         "prefLabel": {
                           "allowedValue": "String",
-                          
+
                           "maxValues": "1"
                         },
                         "altLabel": {
@@ -77,13 +77,13 @@ class irJSONParser
                         },
                         "prefURL": {
                           "allowedValue": "String",
-                          
+
                           "format": "url"
                         },
-                        
+
                         "createDate": {
                           "allowedValue": "String",
-                          
+
                           "format": "date"
                         },
                         "source": {
@@ -98,14 +98,14 @@ class irJSONParser
                         "maintainer": {
                           "allowedValue": "Object"
                         },
-                        
+
                         "linkage": {
                           "allowedValue": "String"
                         },
                         "schema": {
                           "allowedValue": "String"
                         },
-                        
+
                         "allowedValue": {
                           "allowedValue": "String"
                         },
@@ -124,17 +124,17 @@ class irJSONParser
                         "orderedValues": {
                           "allowedValue": "String"
                         },
-                        
-                        
+
+
                         "version": {
                           "allowedValue": "String",
-                          
-                          "maxValues": "1"                          
+
+                          "maxValues": "1"
                         },
                         "linkedType": {
                           "allowedValue": "String",
-                          
-                          "maxValues": "1"                          
+
+                          "maxValues": "1"
                         },
                         "prefixList": {
                           "allowedValue": "Object"
@@ -147,22 +147,22 @@ class irJSONParser
                         },
                         "format": {
                           "allowedValue": "String"
-                        },      
+                        },
                         "mapTo": {
                           "allowedValue": "String"
-                        },    
+                        },
                         "addMapping": {
                           "allowedValue": "Object"
-                        },  
+                        },
                         "subPropertyOf": {
                           "allowedValue": "Object"
-                        },      
+                        },
                         "equivalentPropertyTo": {
                           "allowedValue": "Object"
-                        },      
+                        },
                         "subTypeOf": {
                           "allowedValue": "Object"
-                        },      
+                        },
                         "equivalentTypeTo": {
                           "allowedValue": "Object"
                         }
@@ -171,13 +171,13 @@ class irJSONParser
                   }';
 
   /*!      @brief Constructor. It takes the irJSON file content as input.
-                                                  
+
                   \n
-                  
+
                   @param[in] $content irJSON file content
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   function __construct($content)
@@ -226,11 +226,11 @@ class irJSONParser
   function __destruct() { }
 
   /*!      @brief Parser function that parse the JSON file to populate the irJSON objects
-                                                  
+
                   \n
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   private function parse()
@@ -309,29 +309,29 @@ class irJSONParser
     }
 
 
-    /*    
+    /*
         // Structured Schema
-        
+
         // Load the internal structure schema in the schemas array.
         $structureSchemas = array();
-        
+
         $parsedContent = json_decode($this->irvStructureSchema);
-    
+
         if($parsedContent === NULL)
         {
           array_push($this->jsonErrors, "Syntax error while parsing core structure schema, malformed JSON");
-          
-          return FALSE;    
+
+          return FALSE;
         }
-        
+
         array_push($structureSchemas, $parsedContent);
-        
-        
+
+
         if(isset($this->jsonContent->dataset->structureSchema))
         {
           array_push($structureSchemas, $this->jsonContent->dataset->structureSchema);
         }
-        
+
         // Get the decoded schema
         if(gettype($this->jsonContent->dataset->structureSchema) != "object")
         {
@@ -340,37 +340,37 @@ class irJSONParser
           {
             // Save the URL reference
             $this->dataset->setStructureSchema($this->jsonContent->dataset->structureSchema);
-            
+
             $ch = curl_init();
-            
+
             curl_setopt($ch, CURLOPT_URL, $this->jsonContent->dataset->structureSchema);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-            
-          
+
+
             $data = curl_exec($ch);
-            
-            if(curl_errno($ch)) 
+
+            if(curl_errno($ch))
             {
               array_push($this->irvNotices, "Cannot access the structure schema from: ".$this->jsonContent->dataset->structureSchema." - Ignored");
-              
+
               curl_close($ch);
             }
             else
             {
               $data = trim($data);
-      
+
               curl_close($ch);
-      
+
               $parsedContent = json_decode($data);
-      
+
               if($parsedContent === NULL)
               {
                 array_push($this->jsonErrors, "Syntax error while parsing structure schema '".$this->jsonContent->dataset->structureSchema."', malformed JSON");
-                
-                return FALSE;    
+
+                return FALSE;
               }
-      
+
               array_push($structureSchemas, $parsedContent);
             }
           }
@@ -381,17 +381,17 @@ class irJSONParser
           {
             array_push($structureSchemas, $this->jsonContent->dataset->structureSchema);
           }
-        }    
-        
+        }
+
         // Now populate the schema object.
         foreach($structureSchemas as $structureSchema)
         {
           $structureSchema = $structureSchema->structureSchema;
           $tempSchema = new StructureSchema();
-          
+
           // Set version
-          $tempSchema->setVersion($structureSchema->version);      
-    
+          $tempSchema->setVersion($structureSchema->version);
+
           // Set properties structureSchemas
           if(isset($structureSchema->properties))
           {
@@ -400,7 +400,7 @@ class irJSONParser
               $tempSchema->setPropertyX($property, $values->type, $values->format, $values->equivalentPropertyTo, $values->subPropertyOf);
             }
           }
-          
+
           // Set types
           if(isset($structureSchema->types))
           {
@@ -409,7 +409,7 @@ class irJSONParser
               $tempSchema->setTypeX($type, $values->mapTo, $values->equivalentTypeTo, $values->subTypeOf);
             }
           }
-    
+
           array_push($this->structureSchemas, $tempSchema);
         }
     */
@@ -712,12 +712,12 @@ class irJSONParser
     }
 
 
-  /*    
-      
+  /*
+
       // Now lets validate the types of the values of the attributes that have been parsed.
-        
+
       // Dataset types.
-      
+
       foreach($this->dataset as $property => $value)
       {
         if($this->dataset->getValueType($property) === FALSE)
@@ -725,14 +725,14 @@ class irJSONParser
           // Property not defined.
           continue;
         }
-        
+
         $possibleTypes = array();
         $defined = FALSE;
-  
+
         foreach($this->structureSchemas as $structureSchema)
         {
           $validType = FALSE;
-          
+
           if($structureSchema->getPropertyTypes($property) !== FALSE)
           {
             $defined = TRUE;
@@ -740,48 +740,48 @@ class irJSONParser
             {
               // array(object) and object; and; array(string) and string are the same types
               $t = $type;
-              
+
               if(strpos($t, "array") !== FALSE)
               {
                 $t = substr($t, 6, strlen($t) - 7);
               }
-  
+
               $prop = $this->dataset->getValueType($property);
-  
+
               if(strpos($prop, "array") !== FALSE)
               {
                 $prop = substr($prop, 6, strlen($prop) - 7);
               }
-              
+
               if($t == $prop)
               {
                 // The type of the value has been validated by one of the structure schema.
                 $validType = TRUE;
                 break;
               }
-            
+
               array_push($possibleTypes, $type);
             }
           }
-          
-          if($validType){ break; }    
+
+          if($validType){ break; }
         }
-  
+
         if($validType === FALSE && $defined === TRUE)
         {
           // The type of the value is not valid according to the structure schemas.
-          array_push($this->irvErrors, "Dataset property '".$property."' with value type '".$this->dataset->getValueType($property)."' is not valid according to the definition of the structure schema (should be one of: ".$this->listTypes($possibleTypes)." )");          
+          array_push($this->irvErrors, "Dataset property '".$property."' with value type '".$this->dataset->getValueType($property)."' is not valid according to the definition of the structure schema (should be one of: ".$this->listTypes($possibleTypes)." )");
         }
-          
+
         if($defined === FALSE)
         {
           // The type of the value is not valid according to the structure schemas.
-          array_push($this->irvNotices, "Dataset property '".$property."' used without being part of the core structure schema.)");          
-        }  
+          array_push($this->irvNotices, "Dataset property '".$property."' used without being part of the core structure schema.)");
+        }
       }
-      
+
       // Instance Record types
-  
+
       foreach($this->instanceRecords as $key => $instanceRecord)
       {
         foreach($instanceRecord as $attribute => $value)
@@ -795,7 +795,7 @@ class irJSONParser
                 // Property not defined.
                 continue;
               }
-              
+
               $this->validateAttributeType($instanceRecord, $attr);
             }
           }
@@ -806,23 +806,23 @@ class irJSONParser
               // Property not defined.
               continue;
             }
-  
+
             $this->validateAttributeType($instanceRecord, $attribute);
           }
-        }  
+        }
       }
   */
   }
 
   /*!      @brief Validate an attribute type based on the structure schema linked to the dataset.
-                                                  
+
                   \n
-                  
+
                   @param[in] $instanceRecord Instance record to validate
                   @param[in] $attribute Attribute name to validate
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   private function validateAttributeType(&$instanceRecord, $attribute)
@@ -892,13 +892,13 @@ class irJSONParser
   }
 
   /*!      @brief List all types of a types list and seperate each item with a comma.
-                                                  
+
                   \n
-                  
+
                   @param[in] $types An array of type names
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   private function listTypes($types)

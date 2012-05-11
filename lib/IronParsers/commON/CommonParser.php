@@ -1,6 +1,7 @@
 <?php
 
-namespace IrON-Parsers\commON;
+namespace IronParsers\commON;
+
   /*! @file CommonParser.php
     @brief commON parser implementation file
 
@@ -413,7 +414,7 @@ namespace IrON-Parsers\commON;
       //require_once __DIR__ . "/../EasyCSV/lib/EasyCSV/Reader.php";
 
       try {
-        $reader = new EasyCSV\Reader($path);
+        $reader = new \EasyCSV\Reader($path);
         $data = $reader->getAll();
         $foo = "bar";
 

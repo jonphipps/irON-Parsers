@@ -1,13 +1,13 @@
 <?php
 
-namespace IrON-Parsers\irJSON;
+namespace IronParsers\irJSON;
 
 /*!   @brief Linkage Schema item description
-            
+
     \n
-    
+
     @author Frederick Giasson, Structured Dynamics LLC.
-  
+
     \n\n\n
 */
 
@@ -33,38 +33,38 @@ class LinkageSchema
   function __destruct() { }
 
   /*!      @brief Set the value of the version
-                                                  
+
                   \n
-                  
+
                   @param[in] $version Version of the linkage schema
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   public function setVersion($version) { $this->version = $version; }
 
   /*!      @brief Set the value of the linked type
-                                                  
+
                   \n
-                  
+
                   @param[in] $linkedType Mime type of the language this schema links to (example: application/rdf+xml)
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   public function setLinkedType($linkedType) { $this->linkedType = $linkedType; }
 
   /*!      @brief Set a prefix used in this schema
-                                                  
+
                   \n
-                  
-                  @param[in] $prefix Prefix to be used (example: "foaf:") 
+
+                  @param[in] $prefix Prefix to be used (example: "foaf:")
                   @param[in] $uri Full URI we have to use to extend the prefix (ex: "http://xmlns.com/foaf/0.1/")
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   public function setPrefix($prefix, $uri)
@@ -80,31 +80,31 @@ class LinkageSchema
   }
 
   /*!      @brief Map an attribute to an attribute of an external format/-vocabulary/ontology
-                                                  
+
                   \n
-                  
+
                   @param[in] $property Attribute we want to map to.
                   @param[in] $mapTo External attribute we want to map to
                   @param[in|out] $error Possible mapping errors
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   public function setPropertyX($property, $mapTo, &$error)
     { $this->addProperty($this->propertyX[$property], $mapTo, $error); }
 
   /*!      @brief Map type to a type of an external format/vocabulary/ontology
-                                                  
+
                   \n
-                  
+
                   @param[in] $type Type we want to map to..
                   @param[in] $mapTo External type we want to map to
                   @param[in] $add Additional information that has to be part of the transformation process
                   @param[in|out] $error Possible mapping errors
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   public function setTypeX($type, $mapTo, $add, &$error) { $this->addType($this->typeX[$type], $mapTo, $add, $error); }
@@ -243,11 +243,11 @@ class LinkageSchema
   }
 
   /*!      @brief Generates a JSON serialized file of this linkage schema.
-                                                  
+
                   \n
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   public function generateJsonSerialization()

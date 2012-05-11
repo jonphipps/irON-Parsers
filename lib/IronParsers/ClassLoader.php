@@ -1,6 +1,6 @@
 <?php
 
-namespace IrON-Parsers;
+namespace IronParsers;
 
 /**
  * ClassLoader implementation that implements the technical interoperability
@@ -13,13 +13,13 @@ namespace IrON-Parsers;
  *     $classLoader = new ClassLoader('Doctrine\Common', '/path/to/doctrine');
  *     $classLoader->register();
  *
- * @package IrON-Parsers
+ * @package IronParsers
  * @author Jonathan H. Wage <jonwage@gmail.com>
  * @author Roman S. Borschel <roman@code-factory.org>
  * @author Matthew Weier O'Phinney <matthew@zend.com>
  * @author Kris Wallsmith <kris.wallsmith@gmail.com>
  * @author Fabien Potencier <fabien.potencier@symfony-project.org>
- 
+
  */
 class ClassLoader
 {
@@ -31,7 +31,7 @@ class ClassLoader
     /**
      * Creates a new <tt>ClassLoader</tt> that loads classes of the
      * specified namespace.
-     * 
+     *
      * @param string $ns The namespace to use.
      */
     public function __construct($ns = null, $includePath = null)
@@ -42,7 +42,7 @@ class ClassLoader
 
     /**
      * Sets the namespace separator used by classes in the namespace of this class loader.
-     * 
+     *
      * @param string $sep The separator to use.
      */
     public function setNamespaceSeparator($sep)
@@ -62,7 +62,7 @@ class ClassLoader
 
     /**
      * Sets the base include path for all class files in the namespace of this class loader.
-     * 
+     *
      * @param string $includePath
      */
     public function setIncludePath($includePath)
@@ -82,7 +82,7 @@ class ClassLoader
 
     /**
      * Sets the file extension of class files in the namespace of this class loader.
-     * 
+     *
      * @param string $fileExtension
      */
     public function setFileExtension($fileExtension)

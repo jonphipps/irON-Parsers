@@ -1,13 +1,13 @@
 <?php
 
-namespace IrON-Parsers\irJSON;
+namespace IronParsers\irJSON;
 
 /*!   @brief Structure Schema item description
-            
+
     \n
-    
+
     @author Frederick Giasson, Structured Dynamics LLC.
-  
+
     \n\n\n
 */
 
@@ -27,13 +27,13 @@ class StructureSchema
   function __destruct() { }
 
   /*!      @brief Set the value of the version
-                                                  
+
                   \n
-                  
+
                   @param[in] $version Version of the linkage schema
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   public function setVersion($version)
@@ -42,17 +42,17 @@ class StructureSchema
   }
 
   /*!      @brief Define an attribute in the structure schema
-                                                  
+
                   \n
-                  
+
                   @param[in] $property Attribute name to be described
                   @param[in] $type Expected type of the value
                   @param[in] $format Expected format of the balue
                   @param[in] $equivalentPropertyTo Equivalent property relationships
                   @param[in] $subPropertyOf Sub-property relationships
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   public function setPropertyX($property, $type, $format, $equivalentPropertyTo, $subPropertyOf)
@@ -60,15 +60,15 @@ class StructureSchema
 
 
   /*!      @brief Define a type in the structure schema
-                                                  
+
                   \n
-                  
+
                   @param[in] $type Attribute name to be described
                   @param[in] $equivalentTypeTo Equivalent type relationships
                   @param[in] $subTypeOf Sub-type relationships
-                  
+
                   @author Frederick Giasson, Structured Dynamics LLC.
-          
+
                   \n\n\n
   */
   public function setTypeX($type, $equivalentTypeTo, $subTypeOf)
