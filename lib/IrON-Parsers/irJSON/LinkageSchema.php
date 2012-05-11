@@ -1,5 +1,6 @@
 <?php
 
+namespace IrON-Parsers\irJSON;
 
 /*!   @brief Linkage Schema item description
             

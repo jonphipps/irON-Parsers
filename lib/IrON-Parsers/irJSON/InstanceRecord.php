@@ -1,5 +1,7 @@
 <?php
 
+namespace IrON-Parsers\irJSON;
+
 /*!   @brief Instance Record item description
             
     \n

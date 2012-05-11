@@ -1,5 +1,7 @@
 <?php
 
+namespace IrON-Parsers\commON;
+
 /*! @file CommonParser.php
    @brief commON parser implementation file
   

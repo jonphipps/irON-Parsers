@@ -1,5 +1,6 @@
 <?php
 
+namespace IrON-Parsers\irJSON;
 
 /*!   @brief JSON parsing class
             

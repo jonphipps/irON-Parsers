@@ -1,5 +1,7 @@
 <?php
 
+namespace IrON-Parsers\irJSON;
+
 /*!   @brief Dataset item description
             
     \n
