@@ -15,7 +15,7 @@ The current parsers that have been developed are:
 Documentation
 =============
 
-The [irON Specification](http://techwiki.openstructs.org/index.php/Instance_Record_and_Object_Notation_(irON)_Specification) explains what is irON, what is the difference between all profiles (commON, irXML and irJSON). It also explains how to write a valid file for any of these formats.
+The [irON Specification](http://techwiki.openstructs.org/index.php/Instance_Record_and_Object_Notation_\(irON\)_Specification) explains what is irON, what is the difference between all profiles (commON, irXML and irJSON). It also explains how to write a valid file for any of these formats.
 
 There is also a good [commON case study](http://techwiki.openstructs.org/index.php/CommON_Case_Study) that explains how the commON format can be written using any spreadsheet application.
 
