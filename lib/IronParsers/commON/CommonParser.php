@@ -414,7 +414,7 @@ namespace IronParsers\commON;
       //require_once __DIR__ . "/../EasyCSV/lib/EasyCSV/Reader.php";
 
       try {
-        $reader = new \EasyCSV\Reader($path);
+        $reader = new \IronParsers\commON\Reader($path);
         $data = $reader->getAll();
         $foo = "bar";
 
