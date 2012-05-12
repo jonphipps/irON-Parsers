@@ -11,13 +11,20 @@ class CommonParserTest extends \PHPUnit_Framework_TestCase
      */
     protected $object;
 
-    /**
+  static private $goodCsvFile;
+
+  public function  __construct(){
+    self::$goodCsvFile = file_get_contents(__DIR__ . "/../../../_files/test.csv");
+    parent::__construct();
+  }
+
+  /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
     protected function setUp()
     {
-        $this->object = new CommonParser;
+      $this->object = new CommonParser(self::$goodCsvFile);
     }
 
     /**
@@ -30,14 +37,11 @@ class CommonParserTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers IronParsers\commON\CommonParser::getCsvRecords
-     * @todo   Implement testGetCsvRecords().
      */
     public function testGetCsvRecords()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $csvRecords = $this->object->getCsvRecords();
+      $this->assertCount(42,$csvRecords);
     }
 
     /**
