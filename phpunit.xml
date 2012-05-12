@@ -9,11 +9,11 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="false"
-         bootstrap="tests/unit/_bootstrap.php">
+         bootstrap="tests/IronParsers/Tests/bootstrap.php">
 
     <testsuites name="IrON Tess">
         <testsuite name="commON Test Suite">
-            <file>./tests/IronParsers/Tests/CommonParserTest.php</file>
+            <file>./tests/IronParsers/Tests/commON/CommonParserTest.php</file>
         </testsuite>
     </testsuites>
 <!--
