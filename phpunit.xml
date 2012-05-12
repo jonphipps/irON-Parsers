@@ -13,7 +13,7 @@
 
     <testsuites name="IrON Tess">
         <testsuite name="commON Test Suite">
-            <file>./tests/IronParsers/Tests/commON/CommonParserTest.php</file>
+            <directory suffix="Test.php" >./tests/IronParsers/Tests/commON</directory>
         </testsuite>
     </testsuites>
 <!--
@@ -31,5 +31,5 @@
             </exclude>
         </whitelist>
     </filter>
--->    
+-->
 </phpunit>
