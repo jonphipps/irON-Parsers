@@ -6,8 +6,6 @@ if ( ! defined('PHPUnit_MAIN_METHOD')) {
     define('PHPUnit_MAIN_METHOD', 'AllTests::main');
 }
 
-require_once __DIR__ . '/TestInit.php';
-
 class AllTests
 {
     public static function main()
@@ -19,7 +17,7 @@ class AllTests
     {
         $suite = new \PHPUnit_Framework_TestSuite('IronParsers Tests');
 
-        $suite->addTestSuite('IronParsers\Tests\SampleTest');
+        $suite->addTestSuite('IronParsers\Tests\commON');
 
         return $suite;
     }
