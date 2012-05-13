@@ -2,23 +2,45 @@
 
   namespace IronParsers\commON;
 
+  /**
+   *
+   */
   class Reader extends \EasyCSV\AbstractBase
   {
+    /**
+     * @var array
+     */
     private $_headers;
+    /**
+     * @var integer
+     */
     private $_line;
+    /**
+     * @var string
+     */
     private $_dataMode;
 
+    /**
+     * @param        $path
+     * @param string $mode
+     */
     public function __construct ($path, $mode = 'r+')
     {
+      //open the file for reading
       parent::__construct($path, $mode);
 
       //check for a &&RecordList in the first row
-
+      //if the first row is not a section hesder, assume the first row is property headers
       if (($row = $this->getRow())) {
         $this->getSectionHead($row, FALSE);
       }
     }
 
+    /**
+     * @param $row
+     *
+     * @return array|bool
+     */
     public function getDataRow ($row)
     {
       if ($row) {
@@ -27,6 +49,9 @@
       return FALSE;
     }
 
+    /**
+     * @return array
+     */
     public function getRow ()
     {
       static $row;
@@ -43,15 +68,21 @@
         else {
           $this->getRow();
         }
-        return $row;
       }
+      return $row;
     }
 
+    /**
+     * @return array
+     */
     private function readRow ()
     {
       return fgetcsv($this->_handle, 1000, $this->_delimiter, $this->_enclosure);
     }
 
+    /**
+     * @return array
+     */
     public function getAll ()
     {
       $data = array(
@@ -105,11 +136,20 @@
       return $data;
     }
 
+    /**
+     * @return mixed
+     */
     public function getLineNumber ()
     {
       return $this->_line;
     }
 
+    /**
+     * @param      $row
+     * @param bool $getDataRow
+     *
+     * @return array
+     */
     public function  getSectionHead ($row, $getDataRow = TRUE)
     {
       //is it a section head?
@@ -126,6 +166,10 @@
       return $row;
     }
 
+    /**
+     * @param $row
+     * @return array
+     */
     public function rtrimRow ($row){
 
       //(http://stackoverflow.com/questions/8663316)
