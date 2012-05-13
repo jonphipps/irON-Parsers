@@ -30,19 +30,22 @@ class ReaderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers EasyCSV\Reader::getRow
-     * @todo   Implement testGetRow().
      */
     public function testGetRow()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $row = $this->object->getRow();
+      $this->assertEquals('abridgerExpression',$row[0], "The first row in the file is the first row of data ");
+      $this->assertEquals('Eine Person, Familie oder Körperschaft, die eine Expression eines Werkes kürzt oder zusammenfasst, dabei aber das Wesen des Originalwerkes unverändert lässt. ', $row[8]);
     }
 
     /**
      * @covers EasyCSV\Reader::getAll
-     * @todo   Implement testGetAll().
+     * This is a very ham-handed functional test that takes a pre-defined csv file and compares
+     * all of the resulting commON records.
+     *
+     * There are a few lines commented out that can be used to generate a new serialized
+     * array of the commON records if the source file is updated for content or format.
+     * This should be run once and should be checked by human to verify correctness.
      */
     public function testGetAll()
     {
@@ -62,6 +65,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase
       $this->assertArrayHasKey('linkage',$data);
       $this->assertCount(3, $data['recordlist']);
       $this->assertEquals($goodArray, serialize($data));
+
       //writes out a good array for testing if enabled
       //$handle = fopen($filename,"w");
       //fwrite($handle, serialize($data));
@@ -70,13 +74,9 @@ class ReaderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers EasyCSV\Reader::getLineNumber
-     * @todo   Implement testGetLineNumber().
      */
     public function testGetLineNumber()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $this->assertEquals(2,$this->object->getLineNumber(),"Initial state of object is on the line 2 of the data after the headers");
     }
 }
