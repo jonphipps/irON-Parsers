@@ -409,20 +409,15 @@ namespace IronParsers\commON;
 
         \n\n\n
     */
-    private function csvFileParser($path)
+    private function csvFileParser ($path)
     {
-      //require_once __DIR__ . "/../EasyCSV/lib/EasyCSV/Reader.php";
-
       try {
         $reader = new \IronParsers\commON\Reader($path);
-        $data = $reader->getAll();
-        $foo = "bar";
-
+        $data   = $reader->getAll();
       }
       catch (Exception $e) {
         //we just let it fail
       }
-
     }
 
 
