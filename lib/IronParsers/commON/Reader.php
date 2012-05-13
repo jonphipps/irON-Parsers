@@ -30,7 +30,7 @@
     public function getRow ()
     {
       static $row;
-      if (($row = fgetcsv($this->_handle, 1000, $this->_delimiter, $this->_enclosure)) !== FALSE) {
+      if (($row = $this->readRow()) !== FALSE) {
         $this->_line++;
         //is it a row with no values at all?
         if (is_array($row)) {
@@ -45,6 +45,11 @@
         }
         return $row;
       }
+    }
+
+    private function readRow ()
+    {
+      return fgetcsv($this->_handle, 1000, $this->_delimiter, $this->_enclosure);
     }
 
     public function getAll ()
