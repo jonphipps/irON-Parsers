@@ -36,9 +36,21 @@ class ReaderTest extends \PHPUnit_Framework_TestCase
       $row = $this->object->getRow();
       $this->assertEquals('abridgerExpression',$row[0], "The first row in the file is the first row of data ");
       $this->assertEquals('Eine Person, Familie oder Körperschaft, die eine Expression eines Werkes kürzt oder zusammenfasst, dabei aber das Wesen des Originalwerkes unverändert lässt. ', $row[8]);
+
     }
 
-    /**
+  /**
+   * @covers EasyCSV\Reader::getRow
+   */
+  public function testGetCsvRecords()
+  {
+    $row = $this->object->getCsvRecords();
+    $this->assertInternalType('array', $row);
+    $this->assertEquals('&&recordList',$row[0][0], "The first row is %%recordList");
+    $this->assertEquals('&id', $row[1][0], 'the second row is the headers');
+    }
+
+  /**
      * @covers EasyCSV\Reader::getAll
      * This is a very ham-handed functional test that takes a pre-defined csv file and compares
      * all of the resulting commON records.

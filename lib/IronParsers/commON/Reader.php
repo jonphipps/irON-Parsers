@@ -28,7 +28,7 @@
     /**
      * @var array
      */
-    private $_csvRecords;
+    private $_csvRecords = array();
 
     /**
      * @var bool
@@ -213,5 +213,10 @@
       }
 
       return $row;
+    }
+
+    public function getCsvRecords ()
+    {
+      return $this->_csvRecords;
     }
   }

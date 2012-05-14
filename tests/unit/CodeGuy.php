@@ -32,6 +32,7 @@
  * @method CodeGuy seeMethodNotReturns($object, $method, $value)
  * 
  * Methods from CodeHelper
+ * @method CodeGuy seeArrayValueEquals($expected, $value)
 **/
 
 
