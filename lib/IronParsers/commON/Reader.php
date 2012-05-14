@@ -2,6 +2,9 @@
 
   namespace IronParsers\commON;
 
+    /**
+     *
+     */
   /**
    *
    */
@@ -11,14 +14,26 @@
      * @var array
      */
     private $_headers;
+
     /**
      * @var integer
      */
     private $_line;
+
     /**
      * @var string
      */
     private $_dataMode;
+
+    /**
+     * @var array
+     */
+    private $_csvRecords;
+
+    /**
+     * @var bool
+     */
+    private $_writeToMemory = TRUE;
 
     /**
      * @param        $path
@@ -54,7 +69,9 @@
      */
     public function getRow ()
     {
+      /** @var $row array */
       static $row;
+
       if (($row = $this->readRow()) !== FALSE) {
         $this->_line++;
         //is it a row with no values at all?
@@ -69,15 +86,28 @@
           $this->getRow();
         }
       }
-      return $row;
+      return $this->writeRow($row);
     }
 
     /**
+     * todo refactor to read the next line in either a string or a file
+     *
      * @return array
      */
     private function readRow ()
     {
       return fgetcsv($this->_handle, 1000, $this->_delimiter, $this->_enclosure);
+    }
+
+    private function  writeRow ($row)
+    {
+      if ($this->_writeToMemory) {
+        $this->_csvRecords[] = $row;
+      }
+      else {
+        /** todo configure this to write to disk */
+      }
+      return $row;
     }
 
     /**
@@ -87,8 +117,8 @@
     {
       $data = array(
         'recordlist' => array(),
-        'dataset'   => array(),
-        'linkage'   => array()
+        'dataset'    => array(),
+        'linkage'    => array()
       );
 
       $linkageSection = 'description';
@@ -101,7 +131,7 @@
           case "linkage":
 
             //in the linkage section we trim off the empty columns to the right
-            $row =$this->rtrimRow($row);
+            $row = $this->rtrimRow($row);
 
             //is it a section head?
             if (preg_match("/^&/", $row[0])) {
@@ -168,9 +198,11 @@
 
     /**
      * @param $row
+     *
      * @return array
      */
-    public function rtrimRow ($row){
+    public function rtrimRow ($row)
+    {
 
       //(http://stackoverflow.com/questions/8663316)
       $row = array_slice($row, 0, key(array_reverse(array_diff($row, array("")), 1)) + 1);
