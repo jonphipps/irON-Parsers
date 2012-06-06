@@ -696,7 +696,7 @@ namespace IronParsers\commON;
 
                 // Additionally this ensure a compatibility with some spreadsheet software such as Excel.
 
-                array_push($recordStructure, "");
+                //array_push($recordStructure, "");
               }
             }
 
@@ -718,10 +718,7 @@ namespace IronParsers\commON;
                 if(count($recordStructure) > count($record))
                 {
                   // Pad the record with empty properties values
-                  for($i = 0; $i < (count($recordStructure) - count($record)); $i++)
-                  {
-                    array_push($record, "");
-                  }
+                  $record = array_pad($record, count($recordStructure), '');
                 }
 
                 if(count($recordStructure) < count($record))
@@ -827,10 +824,7 @@ namespace IronParsers\commON;
                 if(count($recordStructure) > count($record))
                 {
                   // Pad the record with empty properties values
-                  for($i = 0; $i < (count($recordStructure) - count($record)); $i++)
-                  {
-                    array_push($record, "");
-                  }
+                  $record = array_pad($record, count($recordStructure), '');
                 }
 
                 if(count($recordStructure) < count($record))
@@ -955,16 +949,16 @@ namespace IronParsers\commON;
 
               // We are parsing a linkage schema
               case "linkage":
+                //trim empty cells from record
+                $record = self::rtrimRow($record);
+
                 if(array_search("&attributeList", $recordStructure) !== FALSE)
                 {
                   // Description of the linkage schema.
                   if(count($recordStructure) > count($record))
                   {
                     // Pad the record with empty properties values
-                    for($i = 0; $i < (count($recordStructure) - count($record)); $i++)
-                    {
-                      array_push($record, "");
-                    }
+                    $record = array_pad($record, count($recordStructure), '');
                   }
 
                   if(count($recordStructure) < count($record))
@@ -1027,10 +1021,7 @@ namespace IronParsers\commON;
                   if(count($recordStructure) > count($record))
                   {
                     // Pad the record with empty properties values
-                    for($i = 0; $i < (count($recordStructure) - count($record)); $i++)
-                    {
-                      array_push($record, "");
-                    }
+                    $record = array_pad($record, count($recordStructure), '');
                   }
 
                   if(count($recordStructure) < count($record))
@@ -1069,10 +1060,7 @@ namespace IronParsers\commON;
                   if(count($recordStructure) > count($record))
                   {
                     // Pad the record with empty properties values
-                    for($i = 0; $i < (count($recordStructure) - count($record)); $i++)
-                    {
-                      array_push($record, "");
-                    }
+                    $record = array_pad($record, count($recordStructure), '');
                   }
 
                   if(count($recordStructure) < count($record))
@@ -1504,5 +1492,19 @@ namespace IronParsers\commON;
       return FALSE;
 
     }
+
+    /**
+     * @param $row
+     *
+     * @return array
+     */
+    private static function rtrimRow ($row)
+    {
+      //(http://stackoverflow.com/questions/8663316)
+      $row = array_slice($row, 0, key(array_reverse(array_diff($row, array("")), 1)) + 1);
+
+      return $row;
+    }
+
   }
 ?>
