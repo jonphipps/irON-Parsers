@@ -545,7 +545,7 @@ namespace IronParsers\commON;
             array_push($CsvRecords, $record);
             $record = array();
 
-            if($csvData[$i] == "\r" && $csvData[$i + 1] == "\n")
+            if((isset($csvData[$i]) && $csvData[$i] == "\r") && (isset($csvData[$i + 1]) && $csvData[$i + 1] == "\n"))
             {
               $i++;
             }
@@ -918,7 +918,7 @@ namespace IronParsers\commON;
                   }
                   else
                   {
-                    if(strpos($record[$key], "||") === FALSE)
+                    if(isset($record[$key]) && strpos($record[$key], "||") === FALSE)
                     {
                       if($record[$key] != "")
                       {
