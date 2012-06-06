@@ -106,37 +106,34 @@
 
     /**
      * @covers IronParsers\commON\CommonParser::getRdfN3
-     * @todo   Implement testGetRdfN3().
      */
     public function testGetRdfN3 ()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      // Remove the following lines when you implement this test.
+      $rdf = $this->object->getRdfN3("http://example.org/testme/");
+//      $file = fopen(__DIR__ . "/../_files/testRdfN3.xml", "w");
+//      fwrite($file, $rdf);
+//      fclose($file);
+      $this->assertContains('<http://example.org/testme/deleeuw> a <http://xmlns.com/foaf/0.1/Person> .', $rdf);
     }
 
     /**
      * @covers IronParsers\commON\CommonParser::getLinkedProperty
-     * @todo   Implement testGetLinkedProperty().
      */
     public function testGetLinkedProperty ()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $result = $this->object->getLinkedProperty("prefLabel");
+      $this->assertEquals("http://www.w3.org/2008/05/skos#prefLabel", $result);
+      $this->assertEquals("", $this->object->getLinkedProperty("byteme"), "Bad property returns empty string");
     }
 
     /**
      * @covers IronParsers\commON\CommonParser::getLinkedType
-     * @todo   Implement testGetLinkedType().
      */
     public function testGetLinkedType ()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $result = $this->object->getLinkedType("person");
+      $this->assertEquals("http://xmlns.com/foaf/0.1/Person", $result);
+      $this->assertEquals("", $this->object->getLinkedType("byteme"), "Bad type returns empty string");
     }
   }
