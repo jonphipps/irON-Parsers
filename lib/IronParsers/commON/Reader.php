@@ -47,7 +47,14 @@
       //check for a &&RecordList in the first row
       //if the first row is not a section hesder, assume the first row is property headers
       if (($row = $this->getRow())) {
-        $this->getSectionHead($row, FALSE);
+        if ("&&recordlist" != trim(strtolower($row[0]))) {
+          $this->_headers  = $row;
+          $this->_dataMode = "recordlist";
+//          $this->_line++;
+        }
+        else {
+          $this->getSectionHead($row, FALSE);
+        }
       }
     }
 
