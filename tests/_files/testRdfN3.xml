@@ -1,0 +1,672 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+
+<http://example.org/testme/deleeuw> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/deleeuw> <http://www.w3.org/2008/05/skos#prefLabel> """de Leeuw, Jan""" .
+<http://example.org/testme/deleeuw> <http://purl.org/ontology/bkn/central#role> """Collaborator""" .
+<http://example.org/testme/deleeuw> <http://xmlns.com/foaf/0.1/homepage> """http://gifi.stat.ucla.edu/""" .
+<http://example.org/testme/deleeuw> <http://purl.org/ontology/bkn/central#affiliation> """Editor of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_JSS\">Journal of Statistical Software</a>""" .
+<http://example.org/testme/deleeuw> <http://purl.org/ontology/bkn/central#affiliation> """Professor of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_UCLA_Stat\">Statistics, UCLA</a>""" .
+
+<http://example.org/testme/griffiths> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/griffiths> <http://www.w3.org/2008/05/skos#prefLabel> """Griffiths, Tom""" .
+<http://example.org/testme/griffiths> <http://purl.org/ontology/bkn/central#role> """Collaborator""" .
+<http://example.org/testme/griffiths> <http://xmlns.com/foaf/0.1/homepage> """http://cocosci.berkeley.edu/tom/""" .
+<http://example.org/testme/griffiths> <http://purl.org/ontology/bkn/central#affiliation> """Director of the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley_Comp_Cog_Sci\">Computational Cognitive Science Lab, U.C. Berkeley</a>""" .
+
+<http://example.org/testme/hornik> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/hornik> <http://www.w3.org/2008/05/skos#prefLabel> """Hornik, Kurt""" .
+<http://example.org/testme/hornik> <http://purl.org/ontology/bkn/central#role> """Collaborator""" .
+<http://example.org/testme/hornik> <http://xmlns.com/foaf/0.1/homepage> """http://www.wu-wien.ac.at/cstat/hornik/""" .
+<http://example.org/testme/hornik> <http://purl.org/ontology/bkn/central#affiliation> """Creator and maintainer of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_CRAN\">Comprehensive R Archive Network (CRAN)</a>""" .
+<http://example.org/testme/hornik> <http://purl.org/ontology/bkn/central#affiliation> """Member of the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_R_Core\">R Core Development Team</a>""" .
+<http://example.org/testme/hornik> <http://purl.org/ontology/bkn/central#affiliation> """WU-Wien""" .
+
+<http://example.org/testme/iacus> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/iacus> <http://www.w3.org/2008/05/skos#prefLabel> """Iacus, Stefano""" .
+<http://example.org/testme/iacus> <http://purl.org/ontology/bkn/central#role> """Collaborator""" .
+<http://example.org/testme/iacus> <http://xmlns.com/foaf/0.1/homepage> """http://ideas.repec.org/e/pia3.html""" .
+<http://example.org/testme/iacus> <http://purl.org/ontology/bkn/central#affiliation> """Database Editor of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_CIS\">Current Index to Statistics (CIS)</a>""" .
+<http://example.org/testme/iacus> <http://purl.org/ontology/bkn/central#affiliation> """Member of the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_R_Core\">R Core Development Team</a>""" .
+<http://example.org/testme/iacus> <http://purl.org/ontology/bkn/central#affiliation> """Milan""" .
+
+<http://example.org/testme/jordan> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/jordan> <http://www.w3.org/2008/05/skos#prefLabel> """Jordan, Michael""" .
+<http://example.org/testme/jordan> <http://purl.org/ontology/bkn/central#role> """Collaborator""" .
+<http://example.org/testme/jordan> <http://xmlns.com/foaf/0.1/homepage> """http://www.cs.berkeley.edu/~jordan/""" .
+<http://example.org/testme/jordan> <http://purl.org/ontology/bkn/central#affiliation> """Professor of Computer Science and Statistics, <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley\">University of California, Berkeley</a>""" .
+<http://example.org/testme/jordan> <http://purl.org/ontology/bkn/central#affiliation> """Professor of Computer Science at <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley\">University of California, Berkeley</a>""" .
+<http://example.org/testme/jordan> <http://purl.org/ontology/bkn/central#affiliation> """Professor of Statistics at <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley\">University of California, Berkeley</a>""" .
+
+<http://example.org/testme/krichel> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/krichel> <http://www.w3.org/2008/05/skos#prefLabel> """Krichel, Thomas""" .
+<http://example.org/testme/krichel> <http://purl.org/ontology/bkn/central#role> """Collaborator""" .
+<http://example.org/testme/krichel> <http://xmlns.com/foaf/0.1/homepage> """http://openlib.org/home/krichel/""" .
+<http://example.org/testme/krichel> <http://purl.org/ontology/bkn/central#affiliation> """Founder of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_RePEc\">Research Papers in Economics (RePEc)</a>""" .
+<http://example.org/testme/krichel> <http://purl.org/ontology/bkn/central#affiliation> """LongIslandU""" .
+
+<http://example.org/testme/krowne> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/krowne> <http://www.w3.org/2008/05/skos#prefLabel> """Krowne, Aaron""" .
+<http://example.org/testme/krowne> <http://purl.org/ontology/bkn/central#role> """Collaborator""" .
+<http://example.org/testme/krowne> <http://xmlns.com/foaf/0.1/homepage> """http://br.endernet.org/~akrowne/""" .
+<http://example.org/testme/krowne> <http://purl.org/ontology/bkn/central#affiliation> """Founder of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_PlanetMath\">PlanetMath</a>""" .
+
+<http://example.org/testme/mattson> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/mattson> <http://www.w3.org/2008/05/skos#prefLabel> """Mattson, Geri""" .
+<http://example.org/testme/mattson> <http://purl.org/ontology/bkn/central#role> """Collaborator""" .
+<http://example.org/testme/mattson> <http://purl.org/ontology/bkn/central#affiliation> """Mattson Publishing Services""" .
+
+<http://example.org/testme/swartz> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/swartz> <http://www.w3.org/2008/05/skos#prefLabel> """Swartz, Aaron""" .
+<http://example.org/testme/swartz> <http://purl.org/ontology/bkn/central#role> """Collaborator""" .
+<http://example.org/testme/swartz> <http://xmlns.com/foaf/0.1/homepage> """http://www.aaronsw.com/""" .
+<http://example.org/testme/swartz> <http://purl.org/ontology/bkn/central#affiliation> """Technical lead for <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_OpenLibrary\">The Open Library</a> project.""" .
+
+<http://example.org/testme/wegner> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/wegner> <http://www.w3.org/2008/05/skos#prefLabel> """Wegner, Bernd""" .
+<http://example.org/testme/wegner> <http://purl.org/ontology/bkn/central#role> """Collaborator""" .
+<http://example.org/testme/wegner> <http://xmlns.com/foaf/0.1/homepage> """http://www.zblmath.fiz-karlsruhe.de/people/wegner.html""" .
+<http://example.org/testme/wegner> <http://purl.org/ontology/bkn/central#affiliation> """Editor-in-chief of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_ZMATH\">Zentralblatt Math (ZMATH)</a>""" .
+<http://example.org/testme/wegner> <http://purl.org/ontology/bkn/central#affiliation> """ZMATH""" .
+
+<http://example.org/testme/zeileis> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/zeileis> <http://www.w3.org/2008/05/skos#prefLabel> """Zeilis, Achim""" .
+<http://example.org/testme/zeileis> <http://purl.org/ontology/bkn/central#role> """Collaborator""" .
+<http://example.org/testme/zeileis> <http://xmlns.com/foaf/0.1/homepage> """http://statmath.wu-wien.ac.at/~zeileis/""" .
+<http://example.org/testme/zeileis> <http://purl.org/ontology/bkn/central#affiliation> """Department of Statistics and Mathematics, <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_WU_Wien\">WU-Wien</a>""" .
+<http://example.org/testme/zeileis> <http://purl.org/ontology/bkn/central#affiliation> """Editor of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_JSS\">Journal of Statistical Software</a>""" .
+
+<http://example.org/testme/zimmerman> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/zimmerman> <http://www.w3.org/2008/05/skos#prefLabel> """Zimmerman, Christian""" .
+<http://example.org/testme/zimmerman> <http://purl.org/ontology/bkn/central#role> """Collaborator""" .
+<http://example.org/testme/zimmerman> <http://xmlns.com/foaf/0.1/homepage> """http://ideas.repec.org/zimm/""" .
+<http://example.org/testme/zimmerman> <http://purl.org/ontology/bkn/central#affiliation> """Creator of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_IDEAS_RePEc\">IDEAS: Economics and Finance Research</a>""" .
+<http://example.org/testme/zimmerman> <http://purl.org/ontology/bkn/central#affiliation> """[UConn]""" .
+
+<http://example.org/testme/fgiasson> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/fgiasson> <http://www.w3.org/2008/05/skos#prefLabel> """Frederick Giasson""" .
+<http://example.org/testme/fgiasson> <http://purl.org/ontology/bkn/central#role> """Contractor""" .
+<http://example.org/testme/fgiasson> <http://xmlns.com/foaf/0.1/homepage> """http://fgiasson.com/blog""" .
+<http://example.org/testme/fgiasson> <http://purl.org/ontology/bkn/central#parent_org> """Structured Dynamics""" .
+<http://example.org/testme/fgiasson> <http://purl.org/ontology/bkn/central#affiliation> """is the lead contract developer for BKN and the CTO for <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/structured_dynamics\">Structured Dynamics LLC</a>""" .
+<http://example.org/testme/fgiasson> <http://xmlns.com/foaf/0.1/givenname> """Frederick""" .
+<http://example.org/testme/fgiasson> <http://xmlns.com/foaf/0.1/family_name> """Giasson""" .
+
+<http://example.org/testme/michael_bergman> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/michael_bergman> <http://www.w3.org/2008/05/skos#prefLabel> """Michael Bergman""" .
+<http://example.org/testme/michael_bergman> <http://purl.org/ontology/bkn/central#role> """Contractor""" .
+<http://example.org/testme/michael_bergman> <http://xmlns.com/foaf/0.1/homepage> """http://www.mkbergman.com""" .
+<http://example.org/testme/michael_bergman> <http://purl.org/ontology/bkn/central#parent_org> """Structured Dynamics""" .
+<http://example.org/testme/michael_bergman> <http://purl.org/ontology/bkn/central#affiliation> """is a contractor for BKN and CEO of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/structured_dynamics\">Structured Dynamics LLC</a>""" .
+<http://example.org/testme/michael_bergman> <http://xmlns.com/foaf/0.1/givenname> """Michael""" .
+<http://example.org/testme/michael_bergman> <http://xmlns.com/foaf/0.1/family_name> """Bergman""" .
+<http://example.org/testme/michael_bergman> <http://xmlns.com/foaf/0.1/workplaceHomepage> """http://structureddynamics.com""" .
+
+<http://example.org/testme/conrey> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/conrey> <http://www.w3.org/2008/05/skos#prefLabel> """Conrey, Brian""" .
+<http://example.org/testme/conrey> <http://purl.org/ontology/bkn/central#role> """Co-PI|Steering Committee""" .
+<http://example.org/testme/conrey> <http://xmlns.com/foaf/0.1/homepage> """http://www.aimath.org/conrey/""" .
+<http://example.org/testme/conrey> <http://purl.org/ontology/bkn/central#affiliation> """Director of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_AIM\">American Institute of Mathematics (AIM)</a>""" .
+
+<http://example.org/testme/king> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/king> <http://www.w3.org/2008/05/skos#prefLabel> """King, Gary""" .
+<http://example.org/testme/king> <http://purl.org/ontology/bkn/central#role> """Co-PI|Steering Committee""" .
+<http://example.org/testme/king> <http://xmlns.com/foaf/0.1/homepage> """http://gking.harvard.edu/""" .
+<http://example.org/testme/king> <http://purl.org/ontology/bkn/central#affiliation> """supervises the research effort at <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_IQSS\">Institute for Quantitative Social Science (IQSS) at Harvard University</a>. He is David Florence Professor of Government in the Department of Government (in the Faculty of Arts and Sciences) at <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Harvard\">Harvard University</a>. He also serves as Director of the Institute for Quantitative Social Science. King and his research group develop and apply statistical and other methods in many areas of social science research, focusing on innovations that span the range from statistical theory to practical application.""" .
+<http://example.org/testme/king> <http://purl.org/ontology/bkn/central#affiliation> """Director of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_IQSS\">Institute for Quantitative Social Science (IQSS) at Harvard University</a>""" .
+<http://example.org/testme/king> <http://purl.org/ontology/bkn/central#affiliation> """Professor of Government at <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Harvard\">Harvard University</a>""" .
+
+<http://example.org/testme/gardner> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/gardner> <http://www.w3.org/2008/05/skos#prefLabel> """Gardner, James""" .
+<http://example.org/testme/gardner> <http://purl.org/ontology/bkn/central#role> """GSR""" .
+<http://example.org/testme/gardner> <http://xmlns.com/foaf/0.1/homepage> """http://mathcs.emory.edu/~jgardn3/""" .
+<http://example.org/testme/gardner> <http://purl.org/ontology/bkn/central#affiliation> """PhD student in Computer Science, Emory University.""" .
+<http://example.org/testme/gardner> <http://xmlns.com/foaf/0.1/page> """http://br.endernet.org/~akrowne/""" .
+
+<http://example.org/testme/regier> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/regier> <http://www.w3.org/2008/05/skos#prefLabel> """Regier, Jeff""" .
+<http://example.org/testme/regier> <http://purl.org/ontology/bkn/central#role> """GSR""" .
+<http://example.org/testme/regier> <http://purl.org/ontology/bkn/central#affiliation> """Masters student in [Berkeley_Stat Statistics, U.C. Berkeley], Founder of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_MetaGlossary\">MetaGlossary.com</a>""" .
+
+<http://example.org/testme/structured_dynamics> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/structured_dynamics> <http://www.w3.org/2008/05/skos#prefLabel> """Structured Dynamics LLC""" .
+<http://example.org/testme/structured_dynamics> <http://purl.org/ontology/bkn/central#role> """Major Contractor""" .
+<http://example.org/testme/structured_dynamics> <http://xmlns.com/foaf/0.1/homepage> """http://structureddynamics.com""" .
+<http://example.org/testme/structured_dynamics> <http://purl.org/ontology/bkn/central#contribution> """is the major software contractor for the BKN effort, with an emphasis on RDF and the Drupal virtual nodes""" .
+<http://example.org/testme/structured_dynamics> <http://xmlns.com/foaf/0.1/logo> """http://structureddynamics.com/images/bg/sd_logo_260.png""" .
+
+<http://example.org/testme/Harvard> a <http://purl.org/ontology/bkn#University> .
+<http://example.org/testme/Harvard> <http://www.w3.org/2008/05/skos#prefLabel> """Harvard  University""" .
+<http://example.org/testme/Harvard> <http://purl.org/ontology/bkn/central#role> """NSF Funded Partner""" .
+<http://example.org/testme/Harvard> <http://xmlns.com/foaf/0.1/homepage> """http://www.harvard.edu/""" .
+<http://example.org/testme/Harvard> <http://purl.org/ontology/bkn/central#about> """is a private university in Cambridge, Massachusetts, the oldest in the U.S, and consistently ranked as one of the best colleges and universities in international rankings.""" .
+
+<http://example.org/testme/Stanford> a <http://purl.org/ontology/bkn#University> .
+<http://example.org/testme/Stanford> <http://www.w3.org/2008/05/skos#prefLabel> """Stanford University""" .
+<http://example.org/testme/Stanford> <http://purl.org/ontology/bkn/central#role> """NSF Funded Partner""" .
+<http://example.org/testme/Stanford> <http://xmlns.com/foaf/0.1/homepage> """http://www.stanford.edu/""" .
+<http://example.org/testme/Stanford> <http://purl.org/ontology/bkn/central#about> """is private and one of the world\'s leading research and teaching institutions, located in Palo Alto, California.""" .
+
+<http://example.org/testme/Berkeley> a <http://purl.org/ontology/bkn#University> .
+<http://example.org/testme/Berkeley> <http://www.w3.org/2008/05/skos#prefLabel> """University of California, Berkeley""" .
+<http://example.org/testme/Berkeley> <http://purl.org/ontology/bkn/central#role> """NSF Funded Partner""" .
+<http://example.org/testme/Berkeley> <http://xmlns.com/foaf/0.1/homepage> """http://www.berkeley.edu/""" .
+<http://example.org/testme/Berkeley> <http://purl.org/ontology/bkn/central#about> """is one of the leading public universities in the world with many notable scientists and researchers; it is also the flagship of the University of California system.""" .
+
+<http://example.org/testme/AIM> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/AIM> <http://www.w3.org/2008/05/skos#prefLabel> """American Institute of Mathematics (AIM)""" .
+<http://example.org/testme/AIM> <http://purl.org/ontology/bkn/central#role> """NSF Funded Partner""" .
+<http://example.org/testme/AIM> <http://xmlns.com/foaf/0.1/homepage> """http://www.aimath.org/""" .
+<http://example.org/testme/AIM> <http://purl.org/ontology/bkn/central#about> """AIM is a research institute with a mission to solve important mathematical problems through focused collaborative research.""" .
+
+<http://example.org/testme/Berkeley_Library> a <http://purl.org/ontology/bkn#Department> .
+<http://example.org/testme/Berkeley_Library> <http://www.w3.org/2008/05/skos#prefLabel> """Berkeley Library""" .
+<http://example.org/testme/Berkeley_Library> <http://purl.org/ontology/bkn/central#role> """Organizational Partner""" .
+<http://example.org/testme/Berkeley_Library> <http://xmlns.com/foaf/0.1/homepage> """http://www.lib.berkeley.edu/""" .
+<http://example.org/testme/Berkeley_Library> <http://purl.org/ontology/bkn/central#contribution> """data contributor; will make MARC data from its collections available to the BKN project.""" .
+<http://example.org/testme/Berkeley_Library> <http://purl.org/ontology/bkn/central#parent_org> """<a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley\">University of California, Berkeley</a>""" .
+
+<http://example.org/testme/ccLearn> a <http://purl.org/ontology/bkn#Department> .
+<http://example.org/testme/ccLearn> <http://www.w3.org/2008/05/skos#prefLabel> """ccLearn""" .
+<http://example.org/testme/ccLearn> <http://purl.org/ontology/bkn/central#role> """Organizational Partner""" .
+<http://example.org/testme/ccLearn> <http://xmlns.com/foaf/0.1/homepage> """http://learn.creativecommons.org/""" .
+<http://example.org/testme/ccLearn> <http://purl.org/ontology/bkn/central#about> """ccLearn is a division of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_CC\">Creative Commons</a> which is dedicated to realizing the full potential of the Internet to support open learning and open educational resources. Its mission is to minimize barriers to sharing and reuse of educational materials -- legal barriers, technical barriers, and social barriers.""" .
+<http://example.org/testme/ccLearn> <http://purl.org/ontology/bkn/central#contribution> """Will contribute its <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_UES\">Universal Education Search</a>.""" .
+<http://example.org/testme/ccLearn> <http://purl.org/ontology/bkn/central#parent_org> """<a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_CC\">Creative Commons</a>""" .
+
+<http://example.org/testme/CrossRef> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/CrossRef> <http://www.w3.org/2008/05/skos#prefLabel> """CrossRef""" .
+<http://example.org/testme/CrossRef> <http://purl.org/ontology/bkn/central#role> """Organizational Partner""" .
+<http://example.org/testme/CrossRef> <http://xmlns.com/foaf/0.1/homepage> """http://www.crossref.org/""" .
+<http://example.org/testme/CrossRef> <http://purl.org/ontology/bkn/central#about> """A publisher association with a mandate to connect users to primary research content, by enabling publishers to work collectively. CrossRef is also the official <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_DOI\">Digital Object Identifier (DOI)</a> link registration agency for scholarly and professional publications.""" .
+<http://example.org/testme/CrossRef> <http://purl.org/ontology/bkn/central#contribution> """CrossRef has offered to encourage its members to make their full text data available for text-mining by the BKN project under suitable conditions; it is an unfunded partner.""" .
+
+<http://example.org/testme/IQSS> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/IQSS> <http://www.w3.org/2008/05/skos#prefLabel> """Institute for Quantitative Social Science (IQSS) at Harvard University""" .
+<http://example.org/testme/IQSS> <http://purl.org/ontology/bkn/central#role> """Organizational Partner""" .
+<http://example.org/testme/IQSS> <http://xmlns.com/foaf/0.1/homepage> """http://www.iq.harvard.edu/""" .
+<http://example.org/testme/IQSS> <http://purl.org/ontology/bkn/central#about> """IQSS is a university-wide institute that facilitates the creation, dissemination, and preservation of scientific knowledge about human society, its problems, and their solutions. Our scientific mission is: to create, and make widely accessible, statistical and analytical tools for the social and health sciences; and to use these tools for understanding and solving major problems that affect society and the well-being of human populations. IQSS supports these aims through a highly collaborative environment and the development of scalable infrastructure. IQSS provides research and development platforms and production services in the areas of information technology (through the Harvard-MIT Data Center), digital preservation (through the Henry A Murray Research archive), and Digital Libraries (through the Dataverse Network Project).""" .
+<http://example.org/testme/IQSS> <http://purl.org/ontology/bkn/central#contribution> """IQSS will extend the Dataverse Network system to produce, store, and analyze bibliographic data; will collaborate with AIM in incorporating the Dataverse Network in their content management portal; and will permanently archive all content deposited into the DVN for public dissemination by the BKN during the grant period.""" .
+<http://example.org/testme/IQSS> <http://purl.org/ontology/bkn/central#parent_org> """<a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Harvard\">Harvard University</a>""" .
+
+<http://example.org/testme/InternetArchive> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/InternetArchive> <http://www.w3.org/2008/05/skos#prefLabel> """Internet Archive""" .
+<http://example.org/testme/InternetArchive> <http://purl.org/ontology/bkn/central#role> """Organizational Partner""" .
+<http://example.org/testme/InternetArchive> <http://xmlns.com/foaf/0.1/homepage> """http://www.archive.org/""" .
+<http://example.org/testme/InternetArchive> <http://purl.org/ontology/bkn/central#about> """A non-profit organization founded to build an Internet library, with the purpose of offering permanent access for researchers, historians, and scholars to historical collections that exist in digital format.""" .
+<http://example.org/testme/InternetArchive> <http://purl.org/ontology/bkn/central#contribution> """Contributor of data from the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_OpenLibrary\">The Open Library</a>.""" .
+
+<http://example.org/testme/WGL> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/WGL> <http://www.w3.org/2008/05/skos#prefLabel> """Leibniz Association (WGL)""" .
+<http://example.org/testme/WGL> <http://purl.org/ontology/bkn/central#role> """Parent organization of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_FIZK\">FIZ  Karlsruhe</a>""" .
+<http://example.org/testme/WGL> <http://xmlns.com/foaf/0.1/homepage> """http://www.wgl.de/""" .
+
+<http://example.org/testme/ARIW> a <http://purl.org/ontology/bkn#Dataset> .
+<http://example.org/testme/ARIW> <http://www.w3.org/2008/05/skos#prefLabel> """ariw: Academic & Research Institutions in the World""" .
+<http://example.org/testme/ARIW> <http://purl.org/ontology/bkn/central#role> """Participating Project""" .
+<http://example.org/testme/ARIW> <http://xmlns.com/foaf/0.1/homepage> """http://ariw.org/""" .
+<http://example.org/testme/ARIW> <http://purl.org/ontology/bkn/central#about> """Public list of universities and research centers in the world, organized by country.""" .
+<http://example.org/testme/ARIW> <http://purl.org/ontology/bkn/central#contribution> """Data contributor.""" .
+
+<http://example.org/testme/OpenLibrary> a <http://purl.org/ontology/bkn#Service> .
+<http://example.org/testme/OpenLibrary> <http://www.w3.org/2008/05/skos#prefLabel> """The Open Library""" .
+<http://example.org/testme/OpenLibrary> <http://purl.org/ontology/bkn/central#role> """Participating Project""" .
+<http://example.org/testme/OpenLibrary> <http://xmlns.com/foaf/0.1/homepage> """http://openlibrary.org/""" .
+<http://example.org/testme/OpenLibrary> <http://purl.org/ontology/bkn/central#about> """This project aims to provide a web page for every book ever published, with links to libraries, bookstores, and online resources for accessing the book.""" .
+<http://example.org/testme/OpenLibrary> <http://purl.org/ontology/bkn/central#contribution> """Contributor of data and software tools""" .
+<http://example.org/testme/OpenLibrary> <http://purl.org/ontology/bkn/central#parent_org> """InternetArchive""" .
+
+<http://example.org/testme/AuthorClaim> a <http://xmlns.com/foaf/0.1/Project> .
+<http://example.org/testme/AuthorClaim> <http://www.w3.org/2008/05/skos#prefLabel> """AuthorClaim registration service""" .
+<http://example.org/testme/AuthorClaim> <http://purl.org/ontology/bkn/central#role> """Participating Project""" .
+<http://example.org/testme/AuthorClaim> <http://xmlns.com/foaf/0.1/homepage> """http://authorclaim.org/""" .
+<http://example.org/testme/AuthorClaim> <http://purl.org/ontology/bkn/central#about> """Aims to link scholars with the records about the works that they have written, in bibliographic databases listed in <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_AuthorClaimSources\">Author Claim Sources</a>""" .
+<http://example.org/testme/AuthorClaim> <http://purl.org/ontology/bkn/central#contribution> """Data and software contributor.""" .
+
+<http://example.org/testme/MathPeople> a <http://xmlns.com/foaf/0.1/Project> .
+<http://example.org/testme/MathPeople> <http://www.w3.org/2008/05/skos#prefLabel> """MathPeople""" .
+<http://example.org/testme/MathPeople> <http://purl.org/ontology/bkn/central#role> """Participating Project""" .
+<http://example.org/testme/MathPeople> <http://xmlns.com/foaf/0.1/homepage> """http://mathpeople.statbib.org/""" .
+<http://example.org/testme/MathPeople> <http://purl.org/ontology/bkn/central#about> """Math People leverages multiple sources of name data to provide a distributed name authority system for people in the mathematical sciences. This makes it possible to aggregate data about the same person from many different data sources.""" .
+<http://example.org/testme/MathPeople> <http://purl.org/ontology/bkn/central#contribution> """MathPeople provides a prototype distributed name authority system which will be refactored, institutionalized and extended to neighbouring fields as part of the BKN project; is a data contributor.""" .
+<http://example.org/testme/MathPeople> <http://purl.org/ontology/bkn/central#parent_org> """CPAM DDrive IMS""" .
+
+<http://example.org/testme/Lemon8_XML> a <http://purl.org/ontology/bkn#Software> .
+<http://example.org/testme/Lemon8_XML> <http://www.w3.org/2008/05/skos#prefLabel> """Lemon8-XML""" .
+<http://example.org/testme/Lemon8_XML> <http://purl.org/ontology/bkn/central#role> """Participating Project""" .
+<http://example.org/testme/Lemon8_XML> <http://xmlns.com/foaf/0.1/homepage> """http://pkp.sfu.ca/lemon8""" .
+<http://example.org/testme/Lemon8_XML> <http://purl.org/ontology/bkn/central#about> """Web-based application designed to make it easier for non-technical editors and authors to convert scholarly papers from typical word-processor editing formats such as MS-Word .DOC and OpenOffice .ODT, into XML-based publishing layout formats.""" .
+<http://example.org/testme/Lemon8_XML> <http://purl.org/ontology/bkn/central#contribution> """will contribute to the software tools available to BKN nodes.""" .
+<http://example.org/testme/Lemon8_XML> <http://purl.org/ontology/bkn/central#parent_org> """PKP""" .
+
+<http://example.org/testme/RProject> a <http://purl.org/ontology/bkn#Software> .
+<http://example.org/testme/RProject> <http://www.w3.org/2008/05/skos#prefLabel> """The R Project for Statistical Computing""" .
+<http://example.org/testme/RProject> <http://purl.org/ontology/bkn/central#role> """Participating Project""" .
+<http://example.org/testme/RProject> <http://purl.org/ontology/bkn/central#node> """Planned""" .
+<http://example.org/testme/RProject> <http://xmlns.com/foaf/0.1/homepage> """http://www.r-project.org/""" .
+<http://example.org/testme/RProject> <http://purl.org/ontology/bkn/central#about> """A free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.""" .
+<http://example.org/testme/RProject> <http://purl.org/ontology/bkn/central#contribution> """Plans to develop <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_CRAN\">Comprehensive R Archive Network (CRAN)</a> into a BKN node.""" .
+
+<http://example.org/testme/JSS> a <http://purl.org/ontology/bibo/Journal> .
+<http://example.org/testme/JSS> <http://www.w3.org/2008/05/skos#prefLabel> """Journal of Statistical Software""" .
+<http://example.org/testme/JSS> <http://purl.org/ontology/bkn/central#role> """Participating Publication""" .
+<http://example.org/testme/JSS> <http://purl.org/ontology/bkn/central#node> """Planned""" .
+<http://example.org/testme/JSS> <http://xmlns.com/foaf/0.1/homepage> """http://www.jstatsoft.org/""" .
+<http://example.org/testme/JSS> <http://purl.org/ontology/bkn/central#about> """An open access electronic journal which publishes articles, algorithms, code snippets, book and software reviews. Sponsored by <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_ASA\">American Statistical Association (ASA)</a>.""" .
+<http://example.org/testme/JSS> <http://purl.org/ontology/bkn/central#contribution> """Contributor of its data and metadata, the expertize of its editorial staff, and a forum for discussion and publication of software developed around the BKN; node planned.""" .
+
+<http://example.org/testme/SpringerEncycMath> a <http://purl.org/ontology/bkn#Encyclopedia> .
+<http://example.org/testme/SpringerEncycMath> <http://www.w3.org/2008/05/skos#prefLabel> """Springer Encyclopedia of Mathematics""" .
+<http://example.org/testme/SpringerEncycMath> <http://purl.org/ontology/bkn/central#role> """Participating Publication""" .
+<http://example.org/testme/SpringerEncycMath> <http://xmlns.com/foaf/0.1/homepage> """http://eom.springer.de/""" .
+<http://example.org/testme/SpringerEncycMath> <http://purl.org/ontology/bkn/central#about> """A comprehensive English-language graduate-level reference work in the field of mathematics today. This online edition comprises more than 8,000 entries and illuminates nearly 50,000 notions in mathematics.""" .
+<http://example.org/testme/SpringerEncycMath> <http://purl.org/ontology/bkn/central#contribution> """Contributor of data and metadata to BKN for indexing and development of subject navigation tools in mathematics.""" .
+<http://example.org/testme/SpringerEncycMath> <http://purl.org/ontology/bkn/central#parent_org> """Springer""" .
+
+<http://example.org/testme/Freebase> a <http://purl.org/ontology/bkn#Dataset> .
+<http://example.org/testme/Freebase> <http://www.w3.org/2008/05/skos#prefLabel> """Freebase""" .
+<http://example.org/testme/Freebase> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/Freebase> <http://xmlns.com/foaf/0.1/homepage> """http://www.freebase.com/""" .
+<http://example.org/testme/Freebase> <http://purl.org/ontology/bkn/central#about> """An open, shared database which allows collaborative definition and maintenance of structured information of the world\'s knowledge, supporting a community with the explicit goal of normalizing and cross-linking disparate data sets.""" .
+<http://example.org/testme/Freebase> <http://purl.org/ontology/bkn/central#contribution> """Will provide a centralized backend infrastructure for storing BKN data, as well as many of the user interface tools necessary for importing, managing and viewing the data.""" .
+<http://example.org/testme/Freebase> <http://purl.org/ontology/bkn/central#parent_org> """Metaweb""" .
+
+<http://example.org/testme/IDEAS_RePEc> a <http://purl.org/ontology/bkn#Dataset> .
+<http://example.org/testme/IDEAS_RePEc> <http://www.w3.org/2008/05/skos#prefLabel> """IDEAS: Economics and Finance Research""" .
+<http://example.org/testme/IDEAS_RePEc> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/IDEAS_RePEc> <http://xmlns.com/foaf/0.1/homepage> """http://ideas.repec.org/""" .
+<http://example.org/testme/IDEAS_RePEc> <http://purl.org/ontology/bkn/central#about> """Largest bibliographic database dedicated to Economics and available freely on the Internet. Over 600,000 items of research can be browsed or searched, and over 500,000 can be downloaded in full text""" .
+<http://example.org/testme/IDEAS_RePEc> <http://purl.org/ontology/bkn/central#contribution> """Software, data and expertise.""" .
+<http://example.org/testme/IDEAS_RePEc> <http://purl.org/ontology/bkn/central#parent_org> """RePEc""" .
+
+<http://example.org/testme/ZMATH> a <http://purl.org/ontology/bkn#Dataset> .
+<http://example.org/testme/ZMATH> <http://www.w3.org/2008/05/skos#prefLabel> """Zentralblatt Math (ZMATH)""" .
+<http://example.org/testme/ZMATH> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/ZMATH> <http://purl.org/ontology/bkn/central#node> """Planned""" .
+<http://example.org/testme/ZMATH> <http://xmlns.com/foaf/0.1/homepage> """http://www.zentralblatt-math.org/zmath/en/""" .
+<http://example.org/testme/ZMATH> <http://purl.org/ontology/bkn/central#about> """Database containing more than 2.0 million bibliographic entries drawn from the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_ZMATHJournals\">ZMATH Serials Database</a>.""" .
+<http://example.org/testme/ZMATH> <http://purl.org/ontology/bkn/central#contribution> """Will develop a node of the BKN which will provide a high quality placeholder on the web for information about each of the more than 5000 subjects in the soon to be released <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_MSC2010\">Mathematical Sciences Classification Scheme MSC2010</a>.""" .
+<http://example.org/testme/ZMATH> <http://purl.org/ontology/bkn/central#parent_org> """FIZK""" .
+
+<http://example.org/testme/CIS> a <http://purl.org/ontology/bkn#Dataset> .
+<http://example.org/testme/CIS> <http://www.w3.org/2008/05/skos#prefLabel> """Current Index to Statistics (CIS)""" .
+<http://example.org/testme/CIS> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/CIS> <http://xmlns.com/foaf/0.1/homepage> """http://www.statindex.org/""" .
+<http://example.org/testme/CIS> <http://purl.org/ontology/bkn/central#about> """The Current Index to Statistics is a bibliographic index to publications in statistics, probability, and related fields. It indexes the entire contents of over 160 \"core journals\", in most cases from 1975 (or first issue if later) to the current end year, and pre-1975 coverage for some; selected articles with statistical content since 1975 from about 1200 additional journals (cumulatively) in related fields, and about 11,000 books in statistics published since 1975.""" .
+<http://example.org/testme/CIS> <http://purl.org/ontology/bkn/central#contribution> """Will contribute data and software.""" .
+<http://example.org/testme/CIS> <http://purl.org/ontology/bkn/central#parent_org> """IMS ASA""" .
+
+<http://example.org/testme/BibServer> a <http://purl.org/ontology/bkn#Service> .
+<http://example.org/testme/BibServer> <http://www.w3.org/2008/05/skos#prefLabel> """BibServer""" .
+<http://example.org/testme/BibServer> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/BibServer> <http://xmlns.com/foaf/0.1/homepage> """http://bibserver.berkeley.edu/""" .
+<http://example.org/testme/BibServer> <http://purl.org/ontology/bkn/central#about> """The BibServer software system, written in <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_python\">Python</a>, provides fully automated multifaceted displays of bibliographic data sets of up to about 1000 items.""" .
+<http://example.org/testme/BibServer> <http://purl.org/ontology/bkn/central#contribution> """BibServer or similar software will be used for rendering bibliographic data sets associated with BKN nodes; it is a software contributor to the project.""" .
+<http://example.org/testme/BibServer> <http://purl.org/ontology/bkn/central#parent_org> """Berkeley_CPAM IMS""" .
+
+<http://example.org/testme/IMSBiobibs> a <http://purl.org/ontology/bkn#Service> .
+<http://example.org/testme/IMSBiobibs> <http://www.w3.org/2008/05/skos#prefLabel> """IMS Biographies--Bibliographies""" .
+<http://example.org/testme/IMSBiobibs> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/IMSBiobibs> <http://xmlns.com/foaf/0.1/homepage> """http://www.e-publications.org/biobibs/""" .
+<http://example.org/testme/IMSBiobibs> <http://purl.org/ontology/bkn/central#about> """The aim of this project is to aggregate and maintain high quality biographical and bibliographical data about prominent people in probability, statistics and related fields.""" .
+<http://example.org/testme/IMSBiobibs> <http://purl.org/ontology/bkn/central#contribution> """Will contribute data and software.""" .
+<http://example.org/testme/IMSBiobibs> <http://purl.org/ontology/bkn/central#parent_org> """IMS""" .
+
+<http://example.org/testme/IMSGroups> a <http://purl.org/ontology/bkn#Service> .
+<http://example.org/testme/IMSGroups> <http://www.w3.org/2008/05/skos#prefLabel> """IMS Groups""" .
+<http://example.org/testme/IMSGroups> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/IMSGroups> <http://xmlns.com/foaf/0.1/homepage> """http://www.imstat.org/groups/""" .
+<http://example.org/testme/IMSGroups> <http://purl.org/ontology/bkn/central#about> """The IMS Groups Program is intended to promote professional communication amongst groups of scholars with common interests, which might be region-specific, subject-specific, or both, or otherwise defined.""" .
+<http://example.org/testme/IMSGroups> <http://purl.org/ontology/bkn/central#parent_org> """IMS""" .
+
+<http://example.org/testme/OAH> a <http://purl.org/ontology/bkn#Service> .
+<http://example.org/testme/OAH> <http://www.w3.org/2008/05/skos#prefLabel> """Open Archives Harvester""" .
+<http://example.org/testme/OAH> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/OAH> <http://xmlns.com/foaf/0.1/homepage> """http://pkp.sfu.ca/?q=harvester""" .
+<http://example.org/testme/OAH> <http://purl.org/ontology/bkn/central#about> """Free metadata indexing system to facilitate the indexing of research and scholarship.""" .
+<http://example.org/testme/OAH> <http://purl.org/ontology/bkn/central#contribution> """will contribute to the software tools available to BKN nodes.""" .
+<http://example.org/testme/OAH> <http://purl.org/ontology/bkn/central#parent_org> """PKP""" .
+
+<http://example.org/testme/OCS> a <http://purl.org/ontology/bkn#Service> .
+<http://example.org/testme/OCS> <http://www.w3.org/2008/05/skos#prefLabel> """Open Conference Systems""" .
+<http://example.org/testme/OCS> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/OCS> <http://xmlns.com/foaf/0.1/homepage> """http://pkp.sfu.ca/?q=ocs""" .
+<http://example.org/testme/OCS> <http://purl.org/ontology/bkn/central#about> """Free Web publishing tool to create a complete Web presence for a scholarly conference.""" .
+<http://example.org/testme/OCS> <http://purl.org/ontology/bkn/central#contribution> """OCS tools will be adapted to support formation of virtual organizations around conferences, and to capture and display associated bibliographic data.""" .
+<http://example.org/testme/OCS> <http://purl.org/ontology/bkn/central#parent_org> """PKP""" .
+
+<http://example.org/testme/OJS> a <http://purl.org/ontology/bkn#Service> .
+<http://example.org/testme/OJS> <http://www.w3.org/2008/05/skos#prefLabel> """Open Journal Systems""" .
+<http://example.org/testme/OJS> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/OJS> <http://xmlns.com/foaf/0.1/homepage> """http://pkp.sfu.ca/?q=ojs""" .
+<http://example.org/testme/OJS> <http://purl.org/ontology/bkn/central#about> """Free journal management and publishing system.""" .
+<http://example.org/testme/OJS> <http://purl.org/ontology/bkn/central#contribution> """Future releases of OJS will feature tools to facilitate import and export of data between BKN and OJS journals.""" .
+<http://example.org/testme/OJS> <http://purl.org/ontology/bkn/central#parent_org> """PKP""" .
+
+<http://example.org/testme/PKP> a <http://purl.org/ontology/bkn#Service> .
+<http://example.org/testme/PKP> <http://www.w3.org/2008/05/skos#prefLabel> """Public Knowledge Project""" .
+<http://example.org/testme/PKP> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/PKP> <http://xmlns.com/foaf/0.1/homepage> """http://pkp.sfu.ca/""" .
+<http://example.org/testme/PKP> <http://purl.org/ontology/bkn/central#about> """PKP is a research and development initiative directed toward improving the scholarly and public quality of academic research through the development of innovative online publishing and knowledge-sharing environments.""" .
+<http://example.org/testme/PKP> <http://purl.org/ontology/bkn/central#contribution> """PKP will support the use of its software by BKN nodes, as well as integrating bibliographic support service into future releases of its software which will be compatible with the needs of BKN nodes, and cooperating with <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_IMS\">Institute of Mathematical Statistics (IMS)</a> to prototype these services for the IMS open access journals. PKP will bring its expertise in publishing/indexing systems to the development of the BKN, to provide leadership, design specifications, and quality control for programming the BKN development work, to ensure that the resulting open source software is readily distributable.""" .
+<http://example.org/testme/PKP> <http://purl.org/ontology/bkn/central#parent_org> """Stanford SFU""" .
+
+<http://example.org/testme/DVN> a <http://purl.org/ontology/bkn#Service> .
+<http://example.org/testme/DVN> <http://www.w3.org/2008/05/skos#prefLabel> """The Dataverse Network Project (DVN)""" .
+<http://example.org/testme/DVN> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/DVN> <http://xmlns.com/foaf/0.1/homepage> """http://thedata.org/""" .
+<http://example.org/testme/DVN> <http://purl.org/ontology/bkn/central#about> """Via web application software, data citation standards, and statistical methods, the Dataverse Network project increases scholarly recognition and distributed control for authors, journals, archives, teachers, and others who produce or organize data; facilitates data access and analysis for researchers and students; and ensures long-term preservation whether or not the data are in the public domain.""" .
+<http://example.org/testme/DVN> <http://purl.org/ontology/bkn/central#contribution> """The DVN project will significantly contribute to the BKN\'s need for data storage and the interfaces to that data.""" .
+<http://example.org/testme/DVN> <http://purl.org/ontology/bkn/central#parent_org> """IQSS""" .
+
+<http://example.org/testme/UES> a <http://purl.org/ontology/bkn#Service> .
+<http://example.org/testme/UES> <http://www.w3.org/2008/05/skos#prefLabel> """Universal Education Search""" .
+<http://example.org/testme/UES> <http://purl.org/ontology/bkn/central#role> """Participating Service""" .
+<http://example.org/testme/UES> <http://xmlns.com/foaf/0.1/homepage> """http://learn.creativecommons.org/projects/oesearch""" .
+<http://example.org/testme/UES> <http://purl.org/ontology/bkn/central#about> """Aims to build a scalable, extensible, federated search for all educational resources on the web.""" .
+<http://example.org/testme/UES> <http://purl.org/ontology/bkn/central#contribution> """Will provide dedicated search over BKN""" .
+<http://example.org/testme/UES> <http://purl.org/ontology/bkn/central#parent_org> """ccLearn""" .
+
+<http://example.org/testme/pitman> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/pitman> <http://www.w3.org/2008/05/skos#prefLabel> """Pitman, Jim""" .
+<http://example.org/testme/pitman> <http://purl.org/ontology/bkn/central#role> """PI|Steering Committee""" .
+<http://example.org/testme/pitman> <http://xmlns.com/foaf/0.1/homepage> """http://www.stat.berkeley.edu/~pitman/""" .
+<http://example.org/testme/pitman> <http://purl.org/ontology/bkn/central#affiliation> """Professor of Statistics and Mathematics, <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley\">University of California, Berkeley</a>""" .
+<http://example.org/testme/pitman> <http://purl.org/ontology/bkn/central#affiliation> """<a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_IMS\">Institute of Mathematical Statistics (IMS)</a> representative to the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_CISMC\">Current Index to Statistics Management Committee</a>""" .
+
+<http://example.org/testme/altman> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/altman> <http://www.w3.org/2008/05/skos#prefLabel> """Altman, Micah""" .
+<http://example.org/testme/altman> <http://purl.org/ontology/bkn/central#role> """Senior Scientist|Steering Committee""" .
+<http://example.org/testme/altman> <http://xmlns.com/foaf/0.1/homepage> """http://maltman.hmdc.harvard.edu/""" .
+<http://example.org/testme/altman> <http://purl.org/ontology/bkn/central#affiliation> """Co-directs the research effort at IQSS, and provides expert consulting on bibliographic standards, digital libraries, and high performance computing. Micah Altman is Senior Research Scientist in the Institute for Quantitative Social Science in the Faculty of Arts and Sciences at Harvard University, Associate Director of the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_HMITData\">Harvard-MIT Data Center</a>, and Archival Director of the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_HAMurray\">Henry A. Murray Research Archive</a> His research focuses on digital libraries, scholarship, and preservation; data management; statistical computation; and information technology and politics.""" .
+<http://example.org/testme/altman> <http://purl.org/ontology/bkn/central#affiliation> """Associate Director of the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_HMITData\">Harvard-MIT Data Center</a>; Senior Research Scientist, <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_IQSS\">Institute for Quantitative Social Science (IQSS) at Harvard University</a>, Archival Director, <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_HAMurray\">Henry A. Murray Research Archive</a>""" .
+
+<http://example.org/testme/farmer> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/farmer> <http://www.w3.org/2008/05/skos#prefLabel> """Farmer, David""" .
+<http://example.org/testme/farmer> <http://purl.org/ontology/bkn/central#role> """Senior Scientist|Steering Committee""" .
+<http://example.org/testme/farmer> <http://xmlns.com/foaf/0.1/homepage> """http://www.aimath.org/about/arccstaff.html""" .
+<http://example.org/testme/farmer> <http://purl.org/ontology/bkn/central#affiliation> """Director of Programming at <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_AIM\">American Institute of Mathematics (AIM)</a>""" .
+
+<http://example.org/testme/wickham> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/wickham> <http://www.w3.org/2008/05/skos#prefLabel> """Wickham, Hadley""" .
+<http://example.org/testme/wickham> <http://purl.org/ontology/bkn/central#role> """Senior Scientist|Steering Committee""" .
+<http://example.org/testme/wickham> <http://xmlns.com/foaf/0.1/homepage> """http://had.co.nz/""" .
+<http://example.org/testme/wickham> <http://purl.org/ontology/bkn/central#contribution> """<a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_IMS\">Institute of Mathematical Statistics (IMS)</a> representative to the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_CISMC\">Current Index to Statistics Management Committee</a>""" .
+<http://example.org/testme/wickham> <http://purl.org/ontology/bkn/central#affiliation> """Department of Statistics, Rice University""" .
+<http://example.org/testme/wickham> <http://purl.org/ontology/bkn/central#gdocs_id> """dg263gpx_62td4g3jdh""" .
+
+<http://example.org/testme/willinsky> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/willinsky> <http://www.w3.org/2008/05/skos#prefLabel> """Willinsky, John""" .
+<http://example.org/testme/willinsky> <http://purl.org/ontology/bkn/central#role> """Senior Scientist|Steering Committee""" .
+<http://example.org/testme/willinsky> <http://xmlns.com/foaf/0.1/homepage> """http://en.wikipedia.org/wiki/John_Willinsky""" .
+<http://example.org/testme/willinsky> <http://purl.org/ontology/bkn/central#contribution> """will play a major role in determining the overall direction of the BKN and designing the standards against which BKN functionality will be measured. Willinsky will oversee work of a graduate student who will contribute to the development of the BKN by reviewing and comparing the recent developments in related software systems, and coordinating the testing and debugging of software and systems developed through this project.""" .
+<http://example.org/testme/willinsky> <http://purl.org/ontology/bkn/central#affiliation> """Director of the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_PKP\">Public Knowledge Project</a>""" .
+<http://example.org/testme/willinsky> <http://purl.org/ontology/bkn/central#affiliation> """Professor of Education at <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Stanford\">Stanford University</a>""" .
+<http://example.org/testme/willinsky> <http://purl.org/ontology/bkn/central#olb> """is a well-known advocate for the open access of scholarly information.""" .
+
+<http://example.org/testme/ASA> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/ASA> <http://www.w3.org/2008/05/skos#prefLabel> """American Statistical Association (ASA)""" .
+<http://example.org/testme/ASA> <http://purl.org/ontology/bkn/central#role> """Sponsor""" .
+<http://example.org/testme/ASA> <http://xmlns.com/foaf/0.1/homepage> """http://www.amstat.org/""" .
+<http://example.org/testme/ASA> <http://purl.org/ontology/bkn/central#about> """A scientific and educational society founded in 1839 with the following mission: to promote excellence in the application of statistical science across the wealth of human endeavor. Sponsor of participating services: <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_JSS\">Journal of Statistical Software</a> and <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_CIS\">Current Index to Statistics (CIS)</a>""" .
+
+<http://example.org/testme/nitin_borwankar> a <http://xmlns.com/foaf/0.1/Person> .
+<http://example.org/testme/nitin_borwankar> <http://www.w3.org/2008/05/skos#prefLabel> """Nitin Borwankar""" .
+<http://example.org/testme/nitin_borwankar> <http://purl.org/ontology/bkn/central#role> """Staff""" .
+<http://example.org/testme/nitin_borwankar> <http://purl.org/ontology/bkn/central#affiliation> """is the overall technical program manager for BKN""" .
+<http://example.org/testme/nitin_borwankar> <http://xmlns.com/foaf/0.1/givenname> """Nitin""" .
+<http://example.org/testme/nitin_borwankar> <http://xmlns.com/foaf/0.1/family_name> """Borwankar""" .
+
+<http://example.org/testme/RePEc> a <http://purl.org/ontology/bkn#Dataset> .
+<http://example.org/testme/RePEc> <http://www.w3.org/2008/05/skos#prefLabel> """Research Papers in Economics (RePEc)""" .
+<http://example.org/testme/RePEc> <http://purl.org/ontology/bkn/central#role> """Unfunded Partner""" .
+<http://example.org/testme/RePEc> <http://xmlns.com/foaf/0.1/homepage> """http://repec.org/""" .
+<http://example.org/testme/RePEc> <http://purl.org/ontology/bkn/central#about> """Collaborative effort of hundreds of volunteers in 63 countries to enhance the dissemination of research in economics. The heart of the project is a decentralized database of working papers, journal articles and software components. All RePEc material is freely available.""" .
+<http://example.org/testme/RePEc> <http://purl.org/ontology/bkn/central#contribution> """Experience and success with persuading authors and institutions to offer their bibliographic data in machine-readable plain text formats, data and software.""" .
+
+<http://example.org/testme/CC> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/CC> <http://www.w3.org/2008/05/skos#prefLabel> """Creative Commons""" .
+<http://example.org/testme/CC> <http://purl.org/ontology/bkn/central#role> """Unfunded Partner""" .
+<http://example.org/testme/CC> <http://xmlns.com/foaf/0.1/homepage> """http://creativecommons.org/""" .
+<http://example.org/testme/CC> <http://purl.org/ontology/bkn/central#about> """A nonprofit organization which provides free tools that let authors, scientists, artists, and educators easily mark their creative work with the freedoms they want it to carry, allowing users to share, remix, reuse -- legally.""" .
+<http://example.org/testme/CC> <http://purl.org/ontology/bkn/central#contribution> """BKN nodes are expected to use the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_CCByAttr\">CC By Attribution License</a> license.""" .
+
+<http://example.org/testme/FIZK> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/FIZK> <http://www.w3.org/2008/05/skos#prefLabel> """FIZ  Karlsruhe""" .
+<http://example.org/testme/FIZK> <http://purl.org/ontology/bkn/central#role> """Unfunded Partner""" .
+<http://example.org/testme/FIZK> <http://xmlns.com/foaf/0.1/homepage> """http://www.fiz-karlsruhe.de/""" .
+<http://example.org/testme/FIZK> <http://purl.org/ontology/bkn/central#about> """A non-profit service institution within the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_WGL\">Leibniz Association (WGL)</a>. Its mission is to make sci-tech information publicly available worldwide and to provide related services supporting information, communication, and publishing.""" .
+<http://example.org/testme/FIZK> <http://purl.org/ontology/bkn/central#contribution> """FIZ Karlsruhe is offering to provide data and hosting of BKN nodes in association with <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_ZMATH\">Zentralblatt Math (ZMATH)</a>.""" .
+
+<http://example.org/testme/IMS> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/IMS> <http://www.w3.org/2008/05/skos#prefLabel> """Institute of Mathematical Statistics (IMS)""" .
+<http://example.org/testme/IMS> <http://purl.org/ontology/bkn/central#role> """Unfunded Partner""" .
+<http://example.org/testme/IMS> <http://xmlns.com/foaf/0.1/homepage> """http://imstat.org""" .
+<http://example.org/testme/IMS> <http://purl.org/ontology/bkn/central#about> """A scholarly society dedicated to the development and dissemination of the theory and applications of statistics and probability.""" .
+<http://example.org/testme/IMS> <http://purl.org/ontology/bkn/central#contribution> """IMS is offering <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_CIS\">Current Index to Statistics (CIS)</a> as a testbed for automated and semi-automated bibliographic data processing by virtual organizations with interests in probability, statistics and related fields, especially <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_IMSGroups\">IMS Groups</a>.""" .
+
+<http://example.org/testme/kreef> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/kreef> <http://www.w3.org/2008/05/skos#prefLabel> """kReef""" .
+<http://example.org/testme/kreef> <http://purl.org/ontology/bkn/central#role> """Unfunded Partner""" .
+<http://example.org/testme/kreef> <http://xmlns.com/foaf/0.1/homepage> """http://www.k-reef.com/""" .
+<http://example.org/testme/kreef> <http://purl.org/ontology/bkn/central#about> """is an online service to accelerate and enhance the research process. Designed by researchers for researchers, kReef replaces the tedious, trial-and-error information discovery process with a real-time service that delivers superior results mined from a large-scale database of scholarly resources.""" .
+
+<http://example.org/testme/Metaweb> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/Metaweb> <http://www.w3.org/2008/05/skos#prefLabel> """Metaweb Technologies""" .
+<http://example.org/testme/Metaweb> <http://purl.org/ontology/bkn/central#role> """Unfunded Partner""" .
+<http://example.org/testme/Metaweb> <http://xmlns.com/foaf/0.1/homepage> """http://metaweb.com/""" .
+<http://example.org/testme/Metaweb> <http://purl.org/ontology/bkn/central#about> """A private company based in San Franciso which aims to build a better infrastructure for the Web.""" .
+<http://example.org/testme/Metaweb> <http://purl.org/ontology/bkn/central#contribution> """Metaweb is offering use of its <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Freebase\">Freebase</a> service for BKN development.""" .
+
+<http://example.org/testme/openlib> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/openlib> <http://www.w3.org/2008/05/skos#prefLabel> """Open Library Society, Inc.""" .
+<http://example.org/testme/openlib> <http://purl.org/ontology/bkn/central#role> """Unfunded Partner""" .
+<http://example.org/testme/openlib> <http://xmlns.com/foaf/0.1/homepage> """http://society.openlib.org/""" .
+<http://example.org/testme/openlib> <http://purl.org/ontology/bkn/central#about> """A not-for-profit corporation formed to build freely-available digital libraries. Working on <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_AuthorClaim\">AuthorClaim registration service</a>, a system to register academic authors and link them to their contributions.""" .
+<http://example.org/testme/openlib> <http://purl.org/ontology/bkn/central#contribution> """Software and data services associated with the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_ARIW\">ariw: Academic & Research Institutions in the World</a> and <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_AuthorClaim\">AuthorClaim registration service</a> services.""" .
+
+<http://example.org/testme/PlanetMath> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/PlanetMath> <http://www.w3.org/2008/05/skos#prefLabel> """PlanetMath""" .
+<http://example.org/testme/PlanetMath> <http://purl.org/ontology/bkn/central#role> """Unfunded Partner""" .
+<http://example.org/testme/PlanetMath> <http://purl.org/ontology/bkn/central#node> """Planned""" .
+<http://example.org/testme/PlanetMath> <http://xmlns.com/foaf/0.1/homepage> """http://planetmath.org/""" .
+<http://example.org/testme/PlanetMath> <http://purl.org/ontology/bkn/central#about> """A virtual community which aims to help make mathematical knowledge more accessible. PlanetMath\'s content is created collaboratively: the main feature is the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_PlanetMathEnc\">PlanetMath Encyclopedia</a>.""" .
+<http://example.org/testme/PlanetMath> <http://purl.org/ontology/bkn/central#contribution> """Plans to develop a BKN node associated with the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_PlanetMathEnc\">PlanetMath Encyclopedia</a>, and assist the BKN by contribution and maintenance of the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_NNexus\">NNexus Autolinker</a> for use by BKN nodes.""" .
+
+<http://example.org/testme/Springer> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/Springer> <http://www.w3.org/2008/05/skos#prefLabel> """Springer""" .
+<http://example.org/testme/Springer> <http://purl.org/ontology/bkn/central#role> """Unfunded Partner""" .
+<http://example.org/testme/Springer> <http://xmlns.com/foaf/0.1/homepage> """http://www.springer.com/""" .
+<http://example.org/testme/Springer> <http://purl.org/ontology/bkn/central#about> """is one of the world\'s largest commercial publishers that develops, manages and disseminates knowledge through books, journals and the Internet; it publishes some of the world\'s best academics and authors.""" .
+<http://example.org/testme/Springer> <http://purl.org/ontology/bkn/central#contribution> """Springer will contribute data and metadata to BKN for purposes of searching, indexing and subject navigation, and cooperate with BKN on development of open access encyclopedic resources with editorial control provided by professional societies.""" .
+<http://example.org/testme/Springer> <http://purl.org/ontology/bkn/central#tags> """commercial publisher""" .
+
+<http://example.org/testme/RFound> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/RFound> <http://www.w3.org/2008/05/skos#prefLabel> """The R Foundation""" .
+<http://example.org/testme/RFound> <http://purl.org/ontology/bkn/central#role> """Unfunded Partner""" .
+<http://example.org/testme/RFound> <http://purl.org/ontology/bkn/central#node> """Planned""" .
+<http://example.org/testme/RFound> <http://xmlns.com/foaf/0.1/homepage> """http://www.r-project.org/""" .
+<http://example.org/testme/RFound> <http://purl.org/ontology/bkn/central#about> """A non-profit organization founded to support the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_RProject\">The R Project for Statistical Computing</a>.""" .
+<http://example.org/testme/RFound> <http://purl.org/ontology/bkn/central#contribution> """Plans to develop a BKN node from <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_CRAN\">Comprehensive R Archive Network (CRAN)</a>""" .
+
+<http://example.org/testme/PlanetMathEnc> a <http://purl.org/ontology/bkn#Encyclopedia> .
+<http://example.org/testme/PlanetMathEnc> <http://www.w3.org/2008/05/skos#prefLabel> """PlanetMath Encyclopedia""" .
+<http://example.org/testme/PlanetMathEnc> <http://purl.org/ontology/bkn/central#role> """Unfunded Partner""" .
+<http://example.org/testme/PlanetMathEnc> <http://purl.org/ontology/bkn/central#node> """Planned""" .
+<http://example.org/testme/PlanetMathEnc> <http://xmlns.com/foaf/0.1/homepage> """http://planetmath.org/encyclopedia""" .
+<http://example.org/testme/PlanetMathEnc> <http://purl.org/ontology/bkn/central#about> """Open access encyclopedia of mathematics with entries written and reviewed by members of the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_PlanetMath\">PlanetMath</a> community.""" .
+<http://example.org/testme/PlanetMathEnc> <http://purl.org/ontology/bkn/central#contribution> """Development into a BKN node""" .
+<http://example.org/testme/PlanetMathEnc> <http://purl.org/ontology/bkn/central#tags> """subject:math""" .
+
+<http://example.org/testme/ZMATHJournals> a <http://purl.org/ontology/bkn#Dataset> .
+<http://example.org/testme/ZMATHJournals> <http://www.w3.org/2008/05/skos#prefLabel> """ZMATH Serials Database""" .
+<http://example.org/testme/ZMATHJournals> <http://xmlns.com/foaf/0.1/homepage> """http://www.zentralblatt-math.org/zmath/journals/""" .
+<http://example.org/testme/ZMATHJournals> <http://purl.org/ontology/bkn/central#about> """Database of more than 1100 Serials and 3500 Journals covered by <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_ZMATH\">Zentralblatt Math (ZMATH)</a>""" .
+<http://example.org/testme/ZMATHJournals> <http://purl.org/ontology/bkn/central#parent_org> """FIZK""" .
+
+<http://example.org/testme/AuthorClaimSources> a <http://purl.org/ontology/bkn#directory> .
+<http://example.org/testme/AuthorClaimSources> <http://www.w3.org/2008/05/skos#prefLabel> """Author Claim Sources""" .
+<http://example.org/testme/AuthorClaimSources> <http://xmlns.com/foaf/0.1/homepage> """http://authorclaim.org/collections""" .
+<http://example.org/testme/AuthorClaimSources> <http://purl.org/ontology/bkn/central#about> """List of data sources for <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_AuthorClaim\">AuthorClaim registration service</a>""" .
+
+<http://example.org/testme/CRAN> a <http://purl.org/ontology/bkn#Archive> .
+<http://example.org/testme/CRAN> <http://www.w3.org/2008/05/skos#prefLabel> """Comprehensive R Archive Network (CRAN)""" .
+<http://example.org/testme/CRAN> <http://purl.org/ontology/bkn/central#node> """Planned""" .
+<http://example.org/testme/CRAN> <http://xmlns.com/foaf/0.1/homepage> """http://cran.r-project.org/""" .
+<http://example.org/testme/CRAN> <http://purl.org/ontology/bkn/central#about> """The central R related resource base, featuring a rapidly growing repository of currently about 1350 extension packages for R maintained at <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_WU_Wien\">WU-Wien</a> by <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/view/bkncentral_hornik\">Kurt Hornik</a> and colleagues.""" .
+
+<http://example.org/testme/HAMurray> a <http://purl.org/ontology/bkn#Archive> .
+<http://example.org/testme/HAMurray> <http://www.w3.org/2008/05/skos#prefLabel> """Henry A. Murray Research Archive""" .
+<http://example.org/testme/HAMurray> <http://xmlns.com/foaf/0.1/homepage> """http://www.murray.harvard.edu/""" .
+
+<http://example.org/testme/Berkeley_Comp_Cog_Sci_Pubs> a <http://purl.org/ontology/bkn#Dataset> .
+<http://example.org/testme/Berkeley_Comp_Cog_Sci_Pubs> <http://www.w3.org/2008/05/skos#prefLabel> """Berkeley Computational Sciences Publications""" .
+<http://example.org/testme/Berkeley_Comp_Cog_Sci_Pubs> <http://xmlns.com/foaf/0.1/homepage> """http://cocosci.berkeley.edu/publications.php""" .
+<http://example.org/testme/Berkeley_Comp_Cog_Sci_Pubs> <http://purl.org/ontology/bkn/central#about> """List with links to full text of recent faculty publications, classified by topics""" .
+
+<http://example.org/testme/SpringerLink> a <http://purl.org/ontology/bkn#Dataset> .
+<http://example.org/testme/SpringerLink> <http://www.w3.org/2008/05/skos#prefLabel> """ZMATH Serials Database""" .
+<http://example.org/testme/SpringerLink> <http://xmlns.com/foaf/0.1/homepage> """http://www.springerlink.com/""" .
+<http://example.org/testme/SpringerLink> <http://purl.org/ontology/bkn/central#about> """One of the world\'s leading interactive databases for high-quality STM journals, books and reference works.""" .
+<http://example.org/testme/SpringerLink> <http://purl.org/ontology/bkn/central#parent_org> """Springer""" .
+
+<http://example.org/testme/Berkeley_Stat_Tech_Reports> a <http://purl.org/ontology/bkn#directory> .
+<http://example.org/testme/Berkeley_Stat_Tech_Reports> <http://www.w3.org/2008/05/skos#prefLabel> """Berkeley Statistics Technical Reports""" .
+<http://example.org/testme/Berkeley_Stat_Tech_Reports> <http://xmlns.com/foaf/0.1/homepage> """http://www.stat.berkeley.edu/cgi-bin/index.cgi?id=25""" .
+<http://example.org/testme/Berkeley_Stat_Tech_Reports> <http://purl.org/ontology/bkn/central#about> """List with links to full text of selected faculty publications.""" .
+
+<http://example.org/testme/Berkeley_CPAM> a <http://purl.org/ontology/bkn#Department> .
+<http://example.org/testme/Berkeley_CPAM> <http://www.w3.org/2008/05/skos#prefLabel> """Berkeley Center For Pure and Applied Mathematics (CPAM)""" .
+<http://example.org/testme/Berkeley_CPAM> <http://purl.org/ontology/bkn/central#node> """Planned""" .
+<http://example.org/testme/Berkeley_CPAM> <http://xmlns.com/foaf/0.1/homepage> """http://cpam.berkeley.edu/""" .
+<http://example.org/testme/Berkeley_CPAM> <http://purl.org/ontology/bkn/central#about> """coordinates the aggregation of publication data over various departments for faculty working in mathematical sciences at the <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley\">University of California, Berkeley</a>.""" .
+<http://example.org/testme/Berkeley_CPAM> <http://purl.org/ontology/bkn/central#contribution> """Will coordinate the aggregation of publication data over various departments for faculty working in mathematical sciences at <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley\">University of California, Berkeley</a>""" .
+<http://example.org/testme/Berkeley_CPAM> <http://purl.org/ontology/bkn/central#parent_org> """<a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley\">University of California, Berkeley</a>""" .
+
+<http://example.org/testme/Berkeley_Math> a <http://purl.org/ontology/bkn#Department> .
+<http://example.org/testme/Berkeley_Math> <http://www.w3.org/2008/05/skos#prefLabel> """Department of Mathematics at the University of California, Berkeley""" .
+<http://example.org/testme/Berkeley_Math> <http://purl.org/ontology/bkn/central#node> """Planned""" .
+<http://example.org/testme/Berkeley_Math> <http://xmlns.com/foaf/0.1/homepage> """http://math.berkeley.edu/""" .
+<http://example.org/testme/Berkeley_Math> <http://purl.org/ontology/bkn/central#about> """is generally recognized as one of the broadest, liveliest, and most distinguished departments of mathematics in the world, with 58 regular faculty members representing most of the major fields of current research, 150 graduate students, 600 upper-division undergraduate majors, and one of the finest mathematics libraries in the U.S.""" .
+<http://example.org/testme/Berkeley_Math> <http://purl.org/ontology/bkn/central#contribution> """The department plans to contribute faculty publication data.""" .
+<http://example.org/testme/Berkeley_Math> <http://purl.org/ontology/bkn/central#parent_org> """<a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley\">University of California, Berkeley</a>""" .
+
+<http://example.org/testme/Berkeley_Stat> a <http://purl.org/ontology/bkn#Department> .
+<http://example.org/testme/Berkeley_Stat> <http://www.w3.org/2008/05/skos#prefLabel> """Department of Statistics at the University of California, Berkeley""" .
+<http://example.org/testme/Berkeley_Stat> <http://purl.org/ontology/bkn/central#node> """Planned""" .
+<http://example.org/testme/Berkeley_Stat> <http://xmlns.com/foaf/0.1/homepage> """http://www.stat.berkeley.edu/""" .
+<http://example.org/testme/Berkeley_Stat> <http://purl.org/ontology/bkn/central#about> """is engaged in research and education in probability and statistics. Besides fundamental theory and methodology, the department is active in statistical problems in diverse fields such as molecular biology, geophysics, astronomy, AIDS research, neurophysiology, sociology, political science, education, demography, and the U.S. Census.""" .
+<http://example.org/testme/Berkeley_Stat> <http://purl.org/ontology/bkn/central#contribution> """Will contribute faculty publication data, including the collection of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley_Stat_Tech_Reports\">Berkeley Statistics Technical Reports</a>.""" .
+<http://example.org/testme/Berkeley_Stat> <http://purl.org/ontology/bkn/central#parent_org> """<a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley\">University of California, Berkeley</a>""" .
+
+<http://example.org/testme/UCLA_Stat> a <http://purl.org/ontology/bkn#Department> .
+<http://example.org/testme/UCLA_Stat> <http://www.w3.org/2008/05/skos#prefLabel> """Statistics, UCLA""" .
+<http://example.org/testme/UCLA_Stat> <http://xmlns.com/foaf/0.1/homepage> """http://www.stat.ucla.edu/""" .
+
+<http://example.org/testme/LongIslandU> a <http://purl.org/ontology/bkn#University> .
+<http://example.org/testme/LongIslandU> <http://www.w3.org/2008/05/skos#prefLabel> """Long Island University""" .
+<http://example.org/testme/LongIslandU> <http://xmlns.com/foaf/0.1/homepage> """http://www.liu.edu/liu_start.html""" .
+
+<http://example.org/testme/Milan> a <http://purl.org/ontology/bkn#University> .
+<http://example.org/testme/Milan> <http://www.w3.org/2008/05/skos#prefLabel> """University of Milan""" .
+<http://example.org/testme/Milan> <http://xmlns.com/foaf/0.1/homepage> """http://www.unimi.it/""" .
+
+<http://example.org/testme/Berkeley_Comp_Cog_Sci> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/Berkeley_Comp_Cog_Sci> <http://www.w3.org/2008/05/skos#prefLabel> """Computational Cognitive Science Lab, U.C. Berkeley""" .
+<http://example.org/testme/Berkeley_Comp_Cog_Sci> <http://purl.org/ontology/bkn/central#node> """Planned""" .
+<http://example.org/testme/Berkeley_Comp_Cog_Sci> <http://xmlns.com/foaf/0.1/homepage> """http://cocosci.berkeley.edu/""" .
+<http://example.org/testme/Berkeley_Comp_Cog_Sci> <http://purl.org/ontology/bkn/central#about> """conducts research into the understanding of the computational and statistical foundations of human inductive inference, and uses this understanding to develop both better accounts of human behavior and better automated systems for solving the challenging computational problems that people solve effortlessly in everyday life.""" .
+<http://example.org/testme/Berkeley_Comp_Cog_Sci> <http://purl.org/ontology/bkn/central#contribution> """Will contribute its <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_Berkeley_Comp_Cog_Sci_Pubs\">Berkeley Computational Sciences Publications</a> data.""" .
+
+<http://example.org/testme/CISMC> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/CISMC> <http://www.w3.org/2008/05/skos#prefLabel> """Current Index to Statistics Management Committee""" .
+<http://example.org/testme/CISMC> <http://xmlns.com/foaf/0.1/homepage> """http://www.statindex.org/CIS/homepage/editors_mc.html""" .
+<http://example.org/testme/CISMC> <http://purl.org/ontology/bkn/central#about> """Includes three of the BKN participants: <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_pitman\">Pitman, Jim</a>, <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_iacus\">Iacus, Stefano</a>,<a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_wickham\">Wickham, Hadley</a>""" .
+
+<http://example.org/testme/HMITData> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/HMITData> <http://www.w3.org/2008/05/skos#prefLabel> """Harvard-MIT Data Center""" .
+<http://example.org/testme/HMITData> <http://xmlns.com/foaf/0.1/homepage> """http://www.hmdc.harvard.edu/""" .
+
+<http://example.org/testme/CISNew> a <http://purl.org/ontology/bkn#Software> .
+<http://example.org/testme/CISNew> <http://www.w3.org/2008/05/skos#prefLabel> """New interface to CIS""" .
+<http://example.org/testme/CISNew> <http://xmlns.com/foaf/0.1/homepage> """http://cis.statbib.org/""" .
+
+<http://example.org/testme/NSFMathInst> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/NSFMathInst> <http://www.w3.org/2008/05/skos#prefLabel> """NSF-funded Mathematics Institutes""" .
+<http://example.org/testme/NSFMathInst> <http://xmlns.com/foaf/0.1/homepage> """http://www.mathinstitutes.org/""" .
+<http://example.org/testme/NSFMathInst> <http://purl.org/ontology/bkn/central#tags> """subject:math""" .
+
+<http://example.org/testme/R_Core> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/R_Core> <http://www.w3.org/2008/05/skos#prefLabel> """R Core Development Team""" .
+<http://example.org/testme/R_Core> <http://xmlns.com/foaf/0.1/homepage> """http://www.r-project.org/contributors.html""" .
+<http://example.org/testme/R_Core> <http://purl.org/ontology/bkn/central#about> """Core group of developers of the with write access to the R source. Includes three of the BKN particpants: <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_hornik\">Hornik, Kurt</a> and <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_iacus\">Iacus, Stefano</a>.""" .
+
+<http://example.org/testme/WU_Wien> a <http://xmlns.com/foaf/0.1/Organization> .
+<http://example.org/testme/WU_Wien> <http://www.w3.org/2008/05/skos#prefLabel> """WU-Wien""" .
+<http://example.org/testme/WU_Wien> <http://xmlns.com/foaf/0.1/homepage> """http://www.wu-wien.ac.at/""" .
+
+<http://example.org/testme/CCByAttr> a <http://purl.org/ontology/bkn#License> .
+<http://example.org/testme/CCByAttr> <http://www.w3.org/2008/05/skos#prefLabel> """CC By Attribution License""" .
+<http://example.org/testme/CCByAttr> <http://xmlns.com/foaf/0.1/homepage> """http://creativecommons.org/licenses/by/3.0/""" .
+<http://example.org/testme/CCByAttr> <http://purl.org/ontology/bkn/central#about> """License which allows users to freely share (copy, distribute and transmit) a work, and to remix to adapt the work, under the condition of attribution. License planned for use by most BKN nodes.""" .
+
+<http://example.org/testme/DOI> a <http://purl.org/ontology/bkn#Service> .
+<http://example.org/testme/DOI> <http://www.w3.org/2008/05/skos#prefLabel> """Digital Object Identifier (DOI)""" .
+<http://example.org/testme/DOI> <http://xmlns.com/foaf/0.1/homepage> """http://www.doi.org/""" .
+<http://example.org/testme/DOI> <http://purl.org/ontology/bkn/central#about> """A system for identifying content objects in the digital environment.""" .
+
+<http://example.org/testme/MetaGlossary> a <http://purl.org/ontology/bkn#Service> .
+<http://example.org/testme/MetaGlossary> <http://www.w3.org/2008/05/skos#prefLabel> """MetaGlossary.com""" .
+<http://example.org/testme/MetaGlossary> <http://xmlns.com/foaf/0.1/homepage> """http://www.metaglossary.com/about/""" .
+
+<http://example.org/testme/MR> a <http://purl.org/ontology/bibo/Journal> .
+<http://example.org/testme/MR> <http://www.w3.org/2008/05/skos#prefLabel> """Mathematical Reviews""" .
+<http://example.org/testme/MR> <http://xmlns.com/foaf/0.1/homepage> """http://www.ams.org/mr-database""" .
+<http://example.org/testme/MR> <http://purl.org/ontology/bkn/central#about> """Since its founding in 1940, Mathematical Reviews(MR) has served researchers and scholars in the mathematical sciences by providing timely information on articles and books that contain new contributions to mathematical research. An important source of bibliographic data in mathematics.""" .
+
+<http://example.org/testme/SpringerDBEnc> a <http://purl.org/ontology/bkn#Encyclopedia> .
+<http://example.org/testme/SpringerDBEnc> <http://www.w3.org/2008/05/skos#prefLabel> """Springer Encyclopedia of Database Systems""" .
+<http://example.org/testme/SpringerDBEnc> <http://xmlns.com/foaf/0.1/homepage> """http://refworks.springer.com/mrw/index.php?id=1217""" .
+<http://example.org/testme/SpringerDBEnc> <http://purl.org/ontology/bkn/central#about> """The Encyclopedia of Database Systems will be a comprehensive reference to topics in database systems for students, researchers and practitioners who need a quick and authoritative reference to the subject of databases, data management, and database systems, such as basic concept definition, data processing algorithms, key results to date, and references to source materials.""" .
+
+<http://example.org/testme/Django> a <http://purl.org/ontology/bkn#Software> .
+<http://example.org/testme/Django> <http://www.w3.org/2008/05/skos#prefLabel> """Django""" .
+<http://example.org/testme/Django> <http://xmlns.com/foaf/0.1/homepage> """http://www.djangoproject.com/""" .
+<http://example.org/testme/Django> <http://purl.org/ontology/bkn/central#about> """A high-level <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_python\">Python</a> Web framework that encourages rapid development and clean, pragmatic design.""" .
+
+<http://example.org/testme/NNexus> a <http://purl.org/ontology/bkn#Software> .
+<http://example.org/testme/NNexus> <http://www.w3.org/2008/05/skos#prefLabel> """NNexus Autolinker""" .
+<http://example.org/testme/NNexus> <http://xmlns.com/foaf/0.1/homepage> """http://mini.endofinternet.org/publications/nnexus/tkde-revision-submit.pdf""" .
+<http://example.org/testme/NNexus> <http://purl.org/ontology/bkn/central#about> """An automatic linker for collaborative web-based corpora, generalizing the automatic linking engine used by <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_PlanetMath\">PlanetMath</a>. NNexus is the first system that automates the difficult process of linking.""" .
+<http://example.org/testme/NNexus> <http://purl.org/ontology/bkn/central#contribution> """Contributor of software.""" .
+
+<http://example.org/testme/python> a <http://purl.org/ontology/bkn#Software> .
+<http://example.org/testme/python> <http://www.w3.org/2008/05/skos#prefLabel> """Python""" .
+<http://example.org/testme/python> <http://xmlns.com/foaf/0.1/homepage> """http://www.python.org/""" .
+<http://example.org/testme/python> <http://purl.org/ontology/bkn/central#about> """A dynamic object-oriented programming language that can be used for many kinds of software development.""" .
+
+<http://example.org/testme/R> a <http://purl.org/ontology/bkn#Software> .
+<http://example.org/testme/R> <http://www.w3.org/2008/05/skos#prefLabel> """R""" .
+<http://example.org/testme/R> <http://xmlns.com/foaf/0.1/homepage> """http://www.r-project.org/""" .
+<http://example.org/testme/R> <http://purl.org/ontology/bkn/central#about> """A language and environment for statistical computing and graphics. The R language is a GNU project which is similar to the S language and environment which was developed at Bell Laboratories (formerly AT&T, now Lucent Technologies) by John Chambers and colleagues.""" .
+
+<http://example.org/testme/RoR> a <http://purl.org/ontology/bkn#Software> .
+<http://example.org/testme/RoR> <http://www.w3.org/2008/05/skos#prefLabel> """Ruby on Rails""" .
+<http://example.org/testme/RoR> <http://xmlns.com/foaf/0.1/homepage> """http://www.rubyonrails.org/""" .
+<http://example.org/testme/RoR> <http://purl.org/ontology/bkn/central#about> """An open-source web framework optimized for programmer happiness and sustainable productivity.""" .
+
+<http://example.org/testme/XML> a <http://purl.org/ontology/bkn#Standard> .
+<http://example.org/testme/XML> <http://www.w3.org/2008/05/skos#prefLabel> """Extensible Markup Language (XML)""" .
+<http://example.org/testme/XML> <http://xmlns.com/foaf/0.1/homepage> """http://en.wikipedia.org/wiki/XML""" .
+<http://example.org/testme/XML> <http://purl.org/ontology/bkn/central#about> """A general-purpose specification for creating custom markup languages.""" .
+
+<http://example.org/testme/MARC> a <http://purl.org/ontology/bkn#Standard> .
+<http://example.org/testme/MARC> <http://www.w3.org/2008/05/skos#prefLabel> """MARC""" .
+<http://example.org/testme/MARC> <http://xmlns.com/foaf/0.1/homepage> """http://www.loc.gov/marc/""" .
+<http://example.org/testme/MARC> <http://purl.org/ontology/bkn/central#about> """MARC formats are standards for the representation and communication of bibliographic and related information in machine-readable form.""" .
+
+<http://example.org/testme/MSC2010> a <http://purl.org/ontology/bkn#Standard> .
+<http://example.org/testme/MSC2010> <http://www.w3.org/2008/05/skos#prefLabel> """Mathematical Sciences Classification Scheme MSC2010""" .
+<http://example.org/testme/MSC2010> <http://purl.org/ontology/bkn/central#role> """Subject classification planned for use by BKN nodes in mathematics""" .
+<http://example.org/testme/MSC2010> <http://xmlns.com/foaf/0.1/homepage> """http://msc2010.org/MSC-2010-server.html""" .
+<http://example.org/testme/MSC2010> <http://purl.org/ontology/bkn/central#about> """Working Draft of MSC2010 produced jointly by the editorial staffs of <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_MR\">Mathematical Reviews</a> and <a href=\"http://www.bibkn.org/drupal/conStruct/datasets/150/resource/bkncentral_ZMATH\">Zentralblatt Math (ZMATH)</a> in consultation with the mathematical community. Made public in July 2008. Subject classification planned for use by BKN nodes in mathematics""" .

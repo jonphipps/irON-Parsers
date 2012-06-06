@@ -15,6 +15,7 @@
 
     public function  __construct ()
     {
+      self::$goodCsvFile = file_get_contents(__DIR__ . "/../_files/bkn_dataset_20091020.csv");
       parent::__construct();
     }
 
@@ -41,20 +42,16 @@
     public function testGetCsvRecords ()
     {
       $csvRecords = $this->object->getCsvRecords();
-      $this->assertCount(42,$csvRecords);
+      $this->assertCount(139, $csvRecords);
     }
 
     /**
      * @covers IronParsers\commON\CommonParser::getCommonRecords
-     * @todo   Implement testGetCommonRecords().
      */
     public function testGetCommonRecords ()
     {
       $Records = $this->object->getCommonRecords();
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $this->assertCount(101, $Records);
     }
 
     /**
@@ -63,22 +60,24 @@
      */
     public function testGetLinkageSchema ()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $Linkage = $this->object->getLinkageSchema();
+      $this->assertCount(2, $Linkage['description']);
+      $this->assertCount(17, $Linkage['properties']);
+      $this->assertCount(2, $Linkage['properties'][0]);
+      $this->assertCount(14, $Linkage['types']);
+      $this->assertCount(3, $Linkage);
+      $this->assertEquals('1.03', $Linkage['description']['&version'][0], "The version is 1.03");
+      $this->assertEquals('person', $Linkage['types'][0]['&typeList'][0], "The first entry in types is 'person'");
+      $this->assertEquals(' http://xmlns.com/foaf/0.1/Person', $Linkage['types'][0]['&mapTo'][0], "The first entry in types is 'person' and is mapped to foaf:person");
     }
 
     /**
      * @covers IronParsers\commON\CommonParser::getDataset
-     * @todo   Implement testGetDataset().
      */
     public function testGetDataset ()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $dataset = $this->object->getDataset();
+      $this->assertCount(0, $dataset);
     }
 
     /**
@@ -87,10 +86,10 @@
      */
     public function testGetCsvErrors ()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      // Remove the following lines when you implement this test.
+      $this->markTestIncomplete(
+        'This test has not been implemented yet.'
+      );
     }
 
     /**
@@ -99,45 +98,42 @@
      */
     public function testGetCommonErrors ()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      // Remove the following lines when you implement this test.
+      $this->markTestIncomplete(
+        'This test has not been implemented yet.'
+      );
     }
 
     /**
      * @covers IronParsers\commON\CommonParser::getRdfN3
-     * @todo   Implement testGetRdfN3().
      */
     public function testGetRdfN3 ()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      // Remove the following lines when you implement this test.
+      $rdf = $this->object->getRdfN3("http://example.org/testme/");
+//      $file = fopen(__DIR__ . "/../_files/testRdfN3.xml", "w");
+//      fwrite($file, $rdf);
+//      fclose($file);
+      $this->assertContains('<http://example.org/testme/deleeuw> a <http://xmlns.com/foaf/0.1/Person> .', $rdf);
     }
 
     /**
      * @covers IronParsers\commON\CommonParser::getLinkedProperty
-     * @todo   Implement testGetLinkedProperty().
      */
     public function testGetLinkedProperty ()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $result = $this->object->getLinkedProperty("prefLabel");
+      $this->assertEquals("http://www.w3.org/2008/05/skos#prefLabel", $result);
+      $this->assertEquals("", $this->object->getLinkedProperty("byteme"), "Bad property returns empty string");
     }
 
     /**
      * @covers IronParsers\commON\CommonParser::getLinkedType
-     * @todo   Implement testGetLinkedType().
      */
     public function testGetLinkedType ()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $result = $this->object->getLinkedType("person");
+      $this->assertEquals("http://xmlns.com/foaf/0.1/Person", $result);
+      $this->assertEquals("", $this->object->getLinkedType("byteme"), "Bad type returns empty string");
     }
   }

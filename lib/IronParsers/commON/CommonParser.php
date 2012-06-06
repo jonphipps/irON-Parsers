@@ -357,7 +357,7 @@ namespace IronParsers\commON;
 
         \n\n\n
     */
-    public function getDataset() { return ($this->dataset); }
+    public function getDataset() { return ($this->commonDataset); }
 
     /*!   @brief Check for CSV parsing errors
 
@@ -545,7 +545,7 @@ namespace IronParsers\commON;
             array_push($CsvRecords, $record);
             $record = array();
 
-            if($csvData[$i] == "\r" && $csvData[$i + 1] == "\n")
+            if((isset($csvData[$i]) && $csvData[$i] == "\r") && (isset($csvData[$i + 1]) && $csvData[$i + 1] == "\n"))
             {
               $i++;
             }
@@ -640,7 +640,9 @@ namespace IronParsers\commON;
         }
 
         // Change the section pointer.
-        $currentSection = self::checkForSection($record);
+        if ($section = self::checkForSection($record)) {
+          $currentSection = $section;
+        }
 
         //we can't process it if we don't know what it is
         if ($currentSection == "unknown")
@@ -649,7 +651,7 @@ namespace IronParsers\commON;
           return ("Unknown section $record[0]");
         }
 
-        if ($currentSection) //it's definitely a good section
+        if ($section) //it's definitely a good section
         {
           $shouldBeRecordDescription = TRUE;
         }
@@ -668,6 +670,7 @@ namespace IronParsers\commON;
             // Lets define the record structure for the next records to parse
             foreach($record as $property)
             {
+              $property = trim($property);
               if($property != "")
               {
                 if($property[0] == "&")
@@ -693,7 +696,7 @@ namespace IronParsers\commON;
 
                 // Additionally this ensure a compatibility with some spreadsheet software such as Excel.
 
-                array_push($recordStructure, "");
+                //array_push($recordStructure, "");
               }
             }
 
@@ -715,10 +718,7 @@ namespace IronParsers\commON;
                 if(count($recordStructure) > count($record))
                 {
                   // Pad the record with empty properties values
-                  for($i = 0; $i < (count($recordStructure) - count($record)); $i++)
-                  {
-                    array_push($record, "");
-                  }
+                  $record = array_pad($record, count($recordStructure), '');
                 }
 
                 if(count($recordStructure) < count($record))
@@ -824,10 +824,7 @@ namespace IronParsers\commON;
                 if(count($recordStructure) > count($record))
                 {
                   // Pad the record with empty properties values
-                  for($i = 0; $i < (count($recordStructure) - count($record)); $i++)
-                  {
-                    array_push($record, "");
-                  }
+                  $record = array_pad($record, count($recordStructure), '');
                 }
 
                 if(count($recordStructure) < count($record))
@@ -918,7 +915,7 @@ namespace IronParsers\commON;
                   }
                   else
                   {
-                    if(strpos($record[$key], "||") === FALSE)
+                    if(isset($record[$key]) && strpos($record[$key], "||") === FALSE)
                     {
                       if($record[$key] != "")
                       {
@@ -952,16 +949,16 @@ namespace IronParsers\commON;
 
               // We are parsing a linkage schema
               case "linkage":
+                //trim empty cells from record
+                $record = self::rtrimRow($record);
+
                 if(array_search("&attributeList", $recordStructure) !== FALSE)
                 {
                   // Description of the linkage schema.
                   if(count($recordStructure) > count($record))
                   {
                     // Pad the record with empty properties values
-                    for($i = 0; $i < (count($recordStructure) - count($record)); $i++)
-                    {
-                      array_push($record, "");
-                    }
+                    $record = array_pad($record, count($recordStructure), '');
                   }
 
                   if(count($recordStructure) < count($record))
@@ -1024,10 +1021,7 @@ namespace IronParsers\commON;
                   if(count($recordStructure) > count($record))
                   {
                     // Pad the record with empty properties values
-                    for($i = 0; $i < (count($recordStructure) - count($record)); $i++)
-                    {
-                      array_push($record, "");
-                    }
+                    $record = array_pad($record, count($recordStructure), '');
                   }
 
                   if(count($recordStructure) < count($record))
@@ -1066,10 +1060,7 @@ namespace IronParsers\commON;
                   if(count($recordStructure) > count($record))
                   {
                     // Pad the record with empty properties values
-                    for($i = 0; $i < (count($recordStructure) - count($record)); $i++)
-                    {
-                      array_push($record, "");
-                    }
+                    $record = array_pad($record, count($recordStructure), '');
                   }
 
                   if(count($recordStructure) < count($record))
@@ -1241,7 +1232,7 @@ namespace IronParsers\commON;
         }
 
         // Get the ID of the record
-        $recordId = $baseInstance . $record["&id"][0]["value"];
+        $recordId = trim($baseInstance) . trim($record["&id"][0]["value"]);
 
         // Serialize the type(s) used to define the record
         if(count($type) == 1)
@@ -1261,11 +1252,14 @@ namespace IronParsers\commON;
         // Map properties / values of the record
         foreach($record as $property => $values)
         {
+          $property = trim($property);
           // Make sure we don't process twice the ID and the TYPE
           if($property != "&id" && $property != "&type")
           {
             foreach($values as $value)
             {
+              $value["value"] = trim($value["value"]);
+
               if($value != "")
               {
                 // Check if this attribute is part of the linkage schema
@@ -1275,7 +1269,7 @@ namespace IronParsers\commON;
                 {
                   // If the attribute to be converted is not part of the linakge schema, then we
                   // simply create a "on-the-fly" attribute by using the $baseOntology URI.
-                  $p = $baseOntology . substr($property, 1, strlen($property) - 1);
+                  $p = trim($baseOntology) . substr($property, 1, strlen($property) - 1);
                 }
 
                 // Check if the value is an external record reference
@@ -1362,7 +1356,7 @@ namespace IronParsers\commON;
     */
     public function getLinkedProperty($targetAttribute)
     {
-      // Remve the processing character if it is present at the beginning of the attr
+      // Remove the processing character if it is present at the beginning of the attr
       if(substr($targetAttribute, 0, 1) == "&")
       {
         $targetAttribute = substr($targetAttribute, 1, strlen($targetAttribute) - 1);
@@ -1374,7 +1368,7 @@ namespace IronParsers\commON;
         {
           if($property["&attributeList"][0] == $targetAttribute)
           {
-            return ($property["&mapTo"][0]);
+            return trim($property["&mapTo"][0]);
           }
         }
       }
@@ -1409,7 +1403,7 @@ namespace IronParsers\commON;
         {
           if($type["&typeList"][0] == $targetType)
           {
-            return ($type["&mapTo"][0]);
+            return trim($type["&mapTo"][0]);
           }
         }
       }
@@ -1498,5 +1492,19 @@ namespace IronParsers\commON;
       return FALSE;
 
     }
+
+    /**
+     * @param $row
+     *
+     * @return array
+     */
+    private static function rtrimRow ($row)
+    {
+      //(http://stackoverflow.com/questions/8663316)
+      $row = array_slice($row, 0, key(array_reverse(array_diff($row, array("")), 1)) + 1);
+
+      return $row;
+    }
+
   }
 ?>
