@@ -60,22 +60,24 @@
      */
     public function testGetLinkageSchema ()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $Linkage = $this->object->getLinkageSchema();
+      $this->assertCount(2, $Linkage['description']);
+      $this->assertCount(17, $Linkage['properties']);
+      $this->assertCount(2, $Linkage['properties'][0]);
+      $this->assertCount(14, $Linkage['types']);
+      $this->assertCount(3, $Linkage);
+      $this->assertEquals('1.03', $Linkage['description']['&version'][0], "The version is 1.03");
+      $this->assertEquals('person', $Linkage['types'][0]['&typeList'][0], "The first entry in types is 'person'");
+      $this->assertEquals(' http://xmlns.com/foaf/0.1/Person', $Linkage['types'][0]['&mapTo'][0], "The first entry in types is 'person' and is mapped to foaf:person");
     }
 
     /**
      * @covers IronParsers\commON\CommonParser::getDataset
-     * @todo   Implement testGetDataset().
      */
     public function testGetDataset ()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $dataset = $this->object->getDataset();
+      $this->assertCount(0, $dataset);
     }
 
     /**
