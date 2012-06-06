@@ -357,7 +357,7 @@ namespace IronParsers\commON;
 
         \n\n\n
     */
-    public function getDataset() { return ($this->dataset); }
+    public function getDataset() { return ($this->commonDataset); }
 
     /*!   @brief Check for CSV parsing errors
 
