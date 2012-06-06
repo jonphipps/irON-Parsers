@@ -640,7 +640,9 @@ namespace IronParsers\commON;
         }
 
         // Change the section pointer.
-        $currentSection = self::checkForSection($record);
+        if ($section = self::checkForSection($record)) {
+          $currentSection = $section;
+        }
 
         //we can't process it if we don't know what it is
         if ($currentSection == "unknown")
@@ -649,7 +651,7 @@ namespace IronParsers\commON;
           return ("Unknown section $record[0]");
         }
 
-        if ($currentSection) //it's definitely a good section
+        if ($section) //it's definitely a good section
         {
           $shouldBeRecordDescription = TRUE;
         }
