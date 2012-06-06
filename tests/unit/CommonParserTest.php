@@ -47,15 +47,11 @@
 
     /**
      * @covers IronParsers\commON\CommonParser::getCommonRecords
-     * @todo   Implement testGetCommonRecords().
      */
     public function testGetCommonRecords ()
     {
       $Records = $this->object->getCommonRecords();
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+      $this->assertCount(101, $Records);
     }
 
     /**
