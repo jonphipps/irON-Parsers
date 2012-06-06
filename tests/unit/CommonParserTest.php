@@ -15,6 +15,7 @@
 
     public function  __construct ()
     {
+      self::$goodCsvFile = file_get_contents(__DIR__ . "/../_files/bkn_dataset_20091020.csv");
       parent::__construct();
     }
 
@@ -41,7 +42,7 @@
     public function testGetCsvRecords ()
     {
       $csvRecords = $this->object->getCsvRecords();
-      $this->assertCount(42,$csvRecords);
+      $this->assertCount(139, $csvRecords);
     }
 
     /**
