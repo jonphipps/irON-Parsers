@@ -1356,7 +1356,7 @@ namespace IronParsers\commON;
     */
     public function getLinkedProperty($targetAttribute)
     {
-      // Remve the processing character if it is present at the beginning of the attr
+      // Remove the processing character if it is present at the beginning of the attr
       if(substr($targetAttribute, 0, 1) == "&")
       {
         $targetAttribute = substr($targetAttribute, 1, strlen($targetAttribute) - 1);
