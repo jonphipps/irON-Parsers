@@ -414,7 +414,7 @@
       try {
         $reader = new EasyCSV\Reader($path);
         $data = $reader->getAll();
-        $foo = "bar";
+        $this->commonRecords = $data;
 
       }
       catch (Exception $e) {

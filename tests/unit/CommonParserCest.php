@@ -80,8 +80,7 @@ CSV;
 
       $I->expect('good path returns success')
         ->executeTestedMethod($commonParser, __DIR__ . '/test.csv' )
-        ->seeExceptionThrown('ErrorException', 'No such file');
-
+        ->seePropertyIs($commonParser, 'commonRecords', 'array');
     }
 
   }
